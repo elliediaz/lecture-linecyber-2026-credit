@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>강의계획서 - 공공데이터를 활용한 AI 이해와 예측 모델 구축</title>
+    <style>
+        body { font-family: '맑은 고딕', 'Malgun Gothic', sans-serif; font-size: 10pt; line-height: 1.4; margin: 20px; }
+        h1 { text-align: center; font-size: 16pt; margin-bottom: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 20px; }
+        th, td { border: 1px solid #000; padding: 6px 8px; vertical-align: top; }
+        th { background-color: #f0f0f0; font-weight: bold; text-align: center; }
+        .header-table td { text-align: center; }
+        .section-title { background-color: #d9e2f3; font-weight: bold; }
+        .part-title { background-color: #e2efda; font-weight: bold; }
+        .code-block { background-color: #f5f5f5; font-family: Consolas, monospace; font-size: 9pt; white-space: pre-wrap; padding: 8px; border-radius: 4px; }
+        ul { margin: 5px 0; padding-left: 20px; }
+        li { margin: 2px 0; }
+        @page { size: A4; margin: 15mm; }
+        @media print { body { margin: 0; } }
+    </style>
+</head>
+<body>
+
+<h1>[ 강의계획서 ]</h1>
+
+<!-- 기본 정보 테이블 -->
+<table class="header-table">
+    <tr>
+        <th width="15%">과목명</th>
+        <td width="35%">공공데이터를 활용한 AI 이해와 예측 모델 구축</td>
+        <th width="15%">운영<br>교·강사명</th>
+        <td width="15%">(담당 강사명)</td>
+        <th width="10%">연도/학기</th>
+        <td width="10%">2026</td>
+    </tr>
+</table>
+
+<!-- 강의개요 -->
+<table>
+    <tr>
+        <th width="15%">강의개요</th>
+        <td>본 과정은 AI 기술 개발 분야에 진입하려는 비전공자와 입문자를 대상으로, 공공데이터를 활용하여 기초적인 AI 예측 모델을 구현하는 실무 역량을 배양한다. "문제정의 → 데이터 수집·분석 → 모델링 → 평가"의 전 과정을 단계별 실습 훈련으로 구성하여, AI S/W 개발 과정 전반을 이해하고 실제 데이터를 활용한 예측 모델을 직접 구축할 수 있도록 한다. 파이썬 프로그래밍 환경에서 NumPy, Pandas, Scikit-learn, TensorFlow/Keras 등 핵심 라이브러리를 활용하며, AI Hub·Kaggle·UCI Repository 등 다양한 공개 데이터셋을 통해 실제 분석 및 모델 학습을 수행한다.</td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th width="15%">사전필요지식</th>
+        <td>
+            <ul>
+                <li>기본적인 컴퓨터 활용 능력 (파일 관리, 인터넷 검색 등)</li>
+                <li>프로그래밍 경험이 없어도 수강 가능 (파이썬 기초부터 시작)</li>
+                <li>고등학교 수준의 수학 기초 (함수, 그래프 해석 등)</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th width="15%">훈련핵심역량</th>
+        <td>
+            <ul>
+                <li>파이썬 기반 데이터 분석 및 시각화 역량</li>
+                <li>통계적 데이터 검증 및 전처리 기법 적용 역량</li>
+                <li>머신러닝·딥러닝 모델 설계 및 학습 역량</li>
+                <li>공개 데이터셋을 활용한 실무형 AI 모델 구축 역량</li>
+                <li>AI 모델의 서비스화 및 API 연동 기초 역량</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th width="15%">사후취득지식</th>
+        <td>
+            <ul>
+                <li>파이썬 프로그래밍 및 데이터 분석 도구(NumPy, Pandas, Matplotlib) 활용 능력</li>
+                <li>기술통계, 가설검정(t-test, ANOVA, 카이제곱) 등 통계적 데이터 분석 능력</li>
+                <li>데이터 전처리(결측치, 이상치, 스케일링, 인코딩) 기법 적용 능력</li>
+                <li>Scikit-learn 기반 머신러닝 모델(SVM, 의사결정트리, PCA 등) 구현 능력</li>
+                <li>CNN, RNN/LSTM, GAN 등 딥러닝 모델의 구조 이해 및 구현 능력</li>
+                <li>트랜스포머 구조와 LLM의 기본 원리 이해</li>
+                <li>Streamlit, FastAPI를 활용한 AI 모델 서비스화 기초 능력</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th width="15%">주교재</th>
+        <td>
+            <strong>[주교재]</strong><br>
+            · 박해선, 『혼자 공부하는 머신러닝+딥러닝』, 한빛미디어, 2024<br>
+            · 오렐리앙 제롱, 『핸즈온 머신러닝 (3판)』, 한빛미디어, 2023<br><br>
+            <strong>[부교재/참고자료]</strong><br>
+            · AI Hub (https://aihub.or.kr) 공개 데이터셋<br>
+            · Kaggle (https://kaggle.com) 데이터셋 및 노트북<br>
+            · UCI Machine Learning Repository (https://archive.ics.uci.edu)<br>
+            · 공공데이터포털 (https://data.go.kr)<br>
+            · TensorFlow/Keras 공식 문서 및 튜토리얼
+        </td>
+    </tr>
+</table>
+
+<!-- 차시별 강의내용 헤더 -->
+<table>
+    <tr>
+        <th width="5%">차시</th>
+        <th width="70%">차시별 강의내용</th>
+        <th width="10%">이론/<br>실습유무</th>
+        <th width="15%">과제/<br>프로젝트 유무</th>
+    </tr>
+
+    <!-- Part I. 환경 구축 및 기초 -->
+    <tr class="part-title">
+        <td colspan="4"><strong>Part I. 환경 구축 및 기초 (1~4차시)</strong></td>
+    </tr>
+
+    <!-- 차시 1 -->
+    <tr>
+        <td style="text-align:center;">1</td>
+        <td>
+            <strong>1) 차시명:</strong> 과정 오리엔테이션 및 AI 개발 환경 소개<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>AI 기초체력과정의 전체 구조와 학습 로드맵을 이해한다</li>
+                <li>파이썬이 AI/데이터 분석에서 사용되는 이유를 설명한다</li>
+                <li>개발 환경(Anaconda, Jupyter Notebook, VS Code)의 역할을 파악한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>과정 소개: "문제정의 → 분석 → 모델링 → 평가" 학습 구조</li>
+                <li>파이썬 언어의 특징과 AI 생태계에서의 위치</li>
+                <li>Anaconda 설치 및 가상환경 생성 실습</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 2 -->
+    <tr>
+        <td style="text-align:center;">2</td>
+        <td>
+            <strong>1) 차시명:</strong> 파이썬 기초 문법과 Jupyter Notebook 활용<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>파이썬 기본 자료형(int, float, str, list, dict)을 구분하고 활용한다</li>
+                <li>조건문과 반복문을 사용하여 간단한 로직을 구현한다</li>
+                <li>Jupyter Notebook에서 셀 단위 실행과 마크다운을 활용한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>변수 선언, 자료형 변환, 기본 연산자</li>
+                <li>if-else 조건문, for/while 반복문 실습</li>
+                <li>Jupyter Notebook 단축키와 마크다운 문서화</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 3 -->
+    <tr>
+        <td style="text-align:center;">3</td>
+        <td>
+            <strong>1) 차시명:</strong> 공개 데이터셋 탐색과 활용 방법<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>AI Hub, Kaggle, UCI Repository 등 주요 공개 데이터 플랫폼을 탐색한다</li>
+                <li>데이터셋 다운로드 및 API 키 발급 절차를 수행한다</li>
+                <li>CSV, JSON 등 데이터 형식의 특징을 이해한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>공공데이터포털, AI Hub 데이터셋 검색 및 다운로드</li>
+                <li>Kaggle 계정 생성 및 Kaggle API를 통한 데이터 다운로드</li>
+                <li>UCI Repository의 대표 데이터셋(Iris, Wine, Boston Housing 등) 소개</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제1]</strong><br>Kaggle 데이터셋 다운로드 및 구조 파악 보고서</td>
+    </tr>
+
+    <!-- 차시 4 -->
+    <tr>
+        <td style="text-align:center;">4</td>
+        <td>
+            <strong>1) 차시명:</strong> NumPy와 Pandas 기초 - 데이터 다루기의 시작<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>NumPy 배열(ndarray)의 생성과 기본 연산을 수행한다</li>
+                <li>Pandas DataFrame을 생성하고 데이터를 조회·필터링한다</li>
+                <li>CSV 파일을 불러와 기본 정보를 확인한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>NumPy: 배열 생성(arange, linspace), 형상 변환(reshape), 브로드캐스팅</li>
+                <li>Pandas: Series와 DataFrame, read_csv(), head(), info(), describe()</li>
+                <li>인덱싱과 슬라이싱, loc/iloc를 활용한 데이터 접근</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- Part II. 데이터 분석 및 통계 기초 -->
+    <tr class="part-title">
+        <td colspan="4"><strong>Part II. 데이터 분석 및 통계 기초 (5~19차시)</strong></td>
+    </tr>
+
+    <!-- 차시 5 -->
+    <tr>
+        <td style="text-align:center;">5</td>
+        <td>
+            <strong>1) 차시명:</strong> 기술통계량의 이해 (1) - 중심경향 측도<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>평균, 중앙값, 최빈값의 개념과 차이를 설명한다</li>
+                <li>각 중심경향 측도가 적합한 데이터 상황을 판단한다</li>
+                <li>Pandas와 NumPy로 중심경향 측도를 계산한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>평균(mean): 산술평균의 수학적 정의 Σx/n와 코드 구현</li>
+                <li>중앙값(median): 정렬 후 중앙 위치값, 이상치에 강건한 특성</li>
+                <li>최빈값(mode): 범주형 데이터에서의 활용</li>
+            </ul>
+            <div class="code-block"># 실습 예시: 중심경향 측도 계산
+import numpy as np
+import pandas as pd
+
+data = [23, 25, 27, 28, 29, 30, 31, 150]  # 이상치 포함 데이터
+print(f"평균: {np.mean(data):.2f}")      # 이상치 영향 큼
+print(f"중앙값: {np.median(data):.2f}")  # 이상치에 강건
+print(f"최빈값: {pd.Series(data).mode().values}")</div>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 6 -->
+    <tr>
+        <td style="text-align:center;">6</td>
+        <td>
+            <strong>1) 차시명:</strong> 기술통계량의 이해 (2) - 산포도와 분포<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>분산, 표준편차, 범위, IQR의 개념을 이해한다</li>
+                <li>데이터의 퍼짐 정도를 정량적으로 표현한다</li>
+                <li>왜도(skewness)와 첨도(kurtosis)로 분포 형태를 파악한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>분산(variance): σ² = Σ(x-μ)²/n 수식과 np.var() 구현</li>
+                <li>표준편차(std): 분산의 제곱근, 원래 단위로 해석</li>
+                <li>사분위수와 IQR(Q3-Q1)을 활용한 이상치 탐지 기준</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 7 -->
+    <tr>
+        <td style="text-align:center;">7</td>
+        <td>
+            <strong>1) 차시명:</strong> 확률분포의 기초 - 정규분포와 표준화<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>정규분포의 특성과 68-95-99.7 규칙을 설명한다</li>
+                <li>Z-점수(표준화)의 의미와 계산 방법을 이해한다</li>
+                <li>scipy.stats를 활용하여 확률을 계산한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>정규분포 N(μ, σ²): 종 모양 곡선, 평균 중심 대칭</li>
+                <li>표준정규분포 Z = (X - μ) / σ: 평균 0, 표준편차 1로 변환</li>
+                <li>scipy.stats.norm을 활용한 CDF, PDF, PPF 계산</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 8 -->
+    <tr>
+        <td style="text-align:center;">8</td>
+        <td>
+            <strong>1) 차시명:</strong> 가설검정의 기초 - t-검정<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>귀무가설과 대립가설의 개념을 구분한다</li>
+                <li>p-value의 의미와 유의수준(α)의 관계를 이해한다</li>
+                <li>독립표본 t-검정을 수행하고 결과를 해석한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>가설검정의 논리: 귀무가설 기각 여부 판단</li>
+                <li>1종 오류(α)와 2종 오류(β)의 개념</li>
+                <li>scipy.stats.ttest_ind()를 활용한 두 집단 평균 비교</li>
+            </ul>
+            <div class="code-block"># 실습 예시: 독립표본 t-검정
+from scipy import stats
+
+class_A = [78, 82, 85, 79, 88, 91, 76, 84]
+class_B = [72, 75, 69, 78, 71, 73, 77, 70]
+
+t_stat, p_value = stats.ttest_ind(class_A, class_B)
+print(f"t-통계량: {t_stat:.4f}, p-value: {p_value:.4f}")</div>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제2-초급]</strong><br>UCI Iris 데이터 t-검정 수행</td>
+    </tr>
+
+    <!-- 차시 9 -->
+    <tr>
+        <td style="text-align:center;">9</td>
+        <td>
+            <strong>1) 차시명:</strong> 분산분석(ANOVA)의 이해<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>ANOVA가 t-검정과 다른 점(3개 이상 집단 비교)을 설명한다</li>
+                <li>F-통계량과 집단 간/집단 내 변동의 관계를 이해한다</li>
+                <li>일원분산분석(One-way ANOVA)을 수행하고 해석한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>ANOVA의 기본 가정: 정규성, 등분산성, 독립성</li>
+                <li>F-통계량 = 집단간 분산 / 집단내 분산</li>
+                <li>scipy.stats.f_oneway()를 활용한 ANOVA 실습</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 10 -->
+    <tr>
+        <td style="text-align:center;">10</td>
+        <td>
+            <strong>1) 차시명:</strong> 카이제곱 검정과 범주형 데이터 분석<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>카이제곱 검정의 적용 상황(범주형 변수 간 관계)을 이해한다</li>
+                <li>적합도 검정과 독립성 검정을 구분한다</li>
+                <li>교차표(crosstab)를 작성하고 카이제곱 검정을 수행한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>카이제곱 통계량: χ² = Σ(관측값-기대값)²/기대값</li>
+                <li>pd.crosstab()을 활용한 교차표 생성</li>
+                <li>scipy.stats.chi2_contingency()로 독립성 검정 수행</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제2-중급]</strong><br>공공데이터 범주형 변수 카이제곱 검정</td>
+    </tr>
+
+    <!-- 차시 11 -->
+    <tr>
+        <td style="text-align:center;">11</td>
+        <td>
+            <strong>1) 차시명:</strong> 데이터 전처리 (1) - 결측치와 이상치 처리<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>결측치의 유형(MCAR, MAR, MNAR)을 구분한다</li>
+                <li>결측치 처리 방법(삭제, 대체, 예측)을 상황에 맞게 적용한다</li>
+                <li>IQR 방법과 Z-score 방법으로 이상치를 탐지한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>isnull(), dropna(), fillna()를 활용한 결측치 처리</li>
+                <li>평균/중앙값 대체, 최빈값 대체, 보간법(interpolate)</li>
+                <li>이상치 탐지: IQR(Q1-1.5*IQR ~ Q3+1.5*IQR), Z-score(|z|>3)</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 12 -->
+    <tr>
+        <td style="text-align:center;">12</td>
+        <td>
+            <strong>1) 차시명:</strong> 데이터 전처리 (2) - 스케일링과 인코딩<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>피처 스케일링(정규화, 표준화)의 필요성을 이해한다</li>
+                <li>MinMaxScaler와 StandardScaler를 적절히 선택한다</li>
+                <li>범주형 변수의 인코딩(Label, One-Hot)을 수행한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>정규화(Min-Max): (x-min)/(max-min), 0~1 범위로 변환</li>
+                <li>표준화(Z-score): (x-μ)/σ, 평균 0, 표준편차 1로 변환</li>
+                <li>LabelEncoder, OneHotEncoder, pd.get_dummies() 활용</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 13 -->
+    <tr>
+        <td style="text-align:center;">13</td>
+        <td>
+            <strong>1) 차시명:</strong> 시계열 데이터의 이해와 전처리<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>시계열 데이터의 구성요소(추세, 계절성, 잔차)를 파악한다</li>
+                <li>시계열 데이터의 인덱싱과 리샘플링을 수행한다</li>
+                <li>이동평균과 차분을 통해 데이터를 정상화한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>pd.to_datetime(), DatetimeIndex 활용</li>
+                <li>resample()을 통한 일별→주별→월별 집계</li>
+                <li>이동평균(rolling), 차분(diff)을 통한 추세 제거</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제3]</strong><br>기상 데이터 시계열 전처리 및 시각화</td>
+    </tr>
+
+    <!-- 차시 14 -->
+    <tr>
+        <td style="text-align:center;">14</td>
+        <td>
+            <strong>1) 차시명:</strong> 텍스트 데이터의 이해와 전처리<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>텍스트 데이터 전처리의 주요 단계를 나열한다</li>
+                <li>토큰화, 불용어 제거, 정규화를 수행한다</li>
+                <li>TF-IDF를 이용하여 텍스트를 수치화한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>텍스트 정제: 특수문자 제거, 소문자 변환, 정규표현식</li>
+                <li>형태소 분석(konlpy), 불용어(stopwords) 처리</li>
+                <li>Bag of Words, TF-IDF 벡터화 (sklearn.feature_extraction)</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 15 -->
+    <tr>
+        <td style="text-align:center;">15</td>
+        <td>
+            <strong>1) 차시명:</strong> 상관분석과 회귀분석 기초<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>피어슨 상관계수의 의미와 해석 방법을 이해한다</li>
+                <li>단순선형회귀의 원리(최소제곱법)를 설명한다</li>
+                <li>sklearn으로 선형회귀 모델을 학습하고 예측한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>상관계수 r: -1 ~ +1, 선형 관계의 강도와 방향</li>
+                <li>회귀직선 y = wx + b, 손실함수 MSE = Σ(y-ŷ)²/n</li>
+                <li>LinearRegression() 모델 학습, fit(), predict(), score()</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 16 -->
+    <tr>
+        <td style="text-align:center;">16</td>
+        <td>
+            <strong>1) 차시명:</strong> Classification vs Regression - 머신러닝의 두 축<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>분류(Classification)와 회귀(Regression)의 차이를 구분한다</li>
+                <li>문제 유형에 따른 적절한 알고리즘을 선택한다</li>
+                <li>평가지표(정확도, RMSE 등)의 적용 기준을 이해한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>분류: 이산적 클래스 예측 (스팸/정상, 품종 분류 등)</li>
+                <li>회귀: 연속적 수치 예측 (가격, 온도, 수요량 등)</li>
+                <li>분류 평가: Accuracy, Precision, Recall, F1-score / 회귀 평가: MSE, RMSE, MAE, R²</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 17 -->
+    <tr>
+        <td style="text-align:center;">17</td>
+        <td>
+            <strong>1) 차시명:</strong> Scikit-learn 기초 - 모델 학습 파이프라인<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>train_test_split을 활용하여 데이터를 분할한다</li>
+                <li>Scikit-learn의 fit-predict 패턴을 이해한다</li>
+                <li>교차검증(Cross-Validation)의 필요성과 방법을 익힌다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>학습/검증/테스트 데이터 분할의 의미</li>
+                <li>cross_val_score()를 활용한 K-Fold 교차검증</li>
+                <li>과적합(Overfitting)과 과소적합(Underfitting) 개념</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제4-초급]</strong><br>UCI Wine 품종 분류 모델</td>
+    </tr>
+
+    <!-- 차시 18 -->
+    <tr>
+        <td style="text-align:center;">18</td>
+        <td>
+            <strong>1) 차시명:</strong> SVM과 의사결정트리 실습<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>SVM의 마진 최대화 원리를 설명한다</li>
+                <li>의사결정트리의 분할 기준(지니 계수, 엔트로피)을 이해한다</li>
+                <li>두 알고리즘을 실제 데이터에 적용하고 비교한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>SVM: 초평면, 서포트 벡터, 커널 트릭(RBF, polynomial)</li>
+                <li>의사결정트리: 정보 이득, 가지치기(pruning), 해석 용이성</li>
+                <li>sklearn의 SVC, DecisionTreeClassifier 비교 실습</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 19 -->
+    <tr>
+        <td style="text-align:center;">19</td>
+        <td>
+            <strong>1) 차시명:</strong> PCA와 차원축소 기법<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>차원의 저주와 차원축소의 필요성을 설명한다</li>
+                <li>PCA의 원리(공분산 행렬, 고유벡터)를 이해한다</li>
+                <li>PCA를 적용하여 데이터를 시각화하고 모델 성능을 비교한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>고차원 데이터의 문제점: 계산량, 과적합, 시각화 어려움</li>
+                <li>PCA: 분산을 최대한 보존하는 새로운 축으로 투영</li>
+                <li>explained_variance_ratio_로 주성분 선택 기준 결정</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제4-중급]</strong><br>PCA 적용 후 분류 성능 비교</td>
+    </tr>
+
+    <!-- Part III. AI 기초 -->
+    <tr class="part-title">
+        <td colspan="4"><strong>Part III. AI 기초 (20~36차시)</strong></td>
+    </tr>
+
+    <!-- 차시 20 -->
+    <tr>
+        <td style="text-align:center;">20</td>
+        <td>
+            <strong>1) 차시명:</strong> 인공지능·머신러닝·딥러닝 개념 정리<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>AI, ML, DL의 포함 관계와 역사적 발전을 설명한다</li>
+                <li>지도학습, 비지도학습, 강화학습을 구분한다</li>
+                <li>딥러닝이 기존 머신러닝과 다른 점을 이해한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>AI > 머신러닝 > 딥러닝의 계층 구조</li>
+                <li>지도학습: 레이블이 있는 데이터로 학습 (분류, 회귀)</li>
+                <li>비지도학습: 레이블 없이 패턴 발견 (클러스터링, 차원축소)</li>
+                <li>딥러닝: 다층 신경망을 통한 자동 특징 추출</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 21 -->
+    <tr>
+        <td style="text-align:center;">21</td>
+        <td>
+            <strong>1) 차시명:</strong> AI를 위한 수학 기초 (1) - 선형대수<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>벡터와 행렬의 기본 연산을 수행한다</li>
+                <li>행렬곱의 의미와 신경망에서의 역할을 이해한다</li>
+                <li>NumPy로 선형대수 연산을 구현한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>벡터: 방향과 크기, 내적(dot product), 코사인 유사도</li>
+                <li>행렬: 덧셈, 스칼라곱, 행렬곱(@ 연산자), 전치(transpose)</li>
+                <li>신경망에서 입력×가중치 행렬곱 → 출력 계산</li>
+            </ul>
+            <div class="code-block"># 실습 예시: 선형대수 기초
+import numpy as np
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+dot_product = np.dot(a, b)  # 내적: 32
+
+X = np.array([[1, 2], [3, 4], [5, 6]])  # 3x2 입력
+W = np.array([[0.1, 0.2, 0.3], [0.4, 0.5, 0.6]])  # 2x3 가중치
+output = X @ W  # 3x3 출력 (행렬곱)</div>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 22 -->
+    <tr>
+        <td style="text-align:center;">22</td>
+        <td>
+            <strong>1) 차시명:</strong> AI를 위한 수학 기초 (2) - 미분과 경사하강법<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>미분의 기하학적 의미(기울기)를 이해한다</li>
+                <li>경사하강법의 원리와 학습률의 역할을 설명한다</li>
+                <li>간단한 함수에 경사하강법을 적용하여 최솟값을 찾는다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>미분: f'(x) = lim(Δx→0) [f(x+Δx) - f(x)] / Δx</li>
+                <li>경사하강법: x_new = x_old - η × ∂L/∂x (η: 학습률)</li>
+                <li>손실함수(Loss Function)와 최적화의 관계</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 23 -->
+    <tr>
+        <td style="text-align:center;">23</td>
+        <td>
+            <strong>1) 차시명:</strong> 신경망의 기본 구조 - 퍼셉트론<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>퍼셉트론의 구조(입력, 가중치, 활성화)를 설명한다</li>
+                <li>단층 퍼셉트론의 한계(XOR 문제)를 이해한다</li>
+                <li>다층 퍼셉트론(MLP)이 비선형 문제를 해결하는 원리를 파악한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>퍼셉트론: y = activation(Σ(w_i × x_i) + b)</li>
+                <li>활성화 함수: step, sigmoid, ReLU</li>
+                <li>XOR 문제와 은닉층의 필요성</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 24 -->
+    <tr>
+        <td style="text-align:center;">24</td>
+        <td>
+            <strong>1) 차시명:</strong> 역전파(Backpropagation) 알고리즘<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>순전파와 역전파의 차이를 설명한다</li>
+                <li>연쇄법칙(Chain Rule)이 역전파에서 적용되는 방식을 이해한다</li>
+                <li>간단한 신경망에서 역전파를 직접 계산한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>순전파: 입력 → 출력 방향으로 값 계산</li>
+                <li>역전파: 출력 → 입력 방향으로 기울기 전파</li>
+                <li>연쇄법칙: ∂L/∂w = ∂L/∂y × ∂y/∂z × ∂z/∂w</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제5]</strong><br>2층 신경망 역전파 직접 구현</td>
+    </tr>
+
+    <!-- 차시 25 -->
+    <tr>
+        <td style="text-align:center;">25</td>
+        <td>
+            <strong>1) 차시명:</strong> 기울기 소실 문제와 활성화 함수<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>기울기 소실(Vanishing Gradient) 문제의 원인을 설명한다</li>
+                <li>ReLU가 sigmoid보다 깊은 신경망에서 유리한 이유를 이해한다</li>
+                <li>다양한 활성화 함수(ReLU, Leaky ReLU, ELU)를 비교한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>Sigmoid/Tanh: 출력 범위 제한 → 기울기가 0에 가까워짐</li>
+                <li>ReLU: f(x) = max(0, x), 양수에서 기울기 1 유지</li>
+                <li>Dying ReLU 문제와 Leaky ReLU, ELU의 해결책</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 26 -->
+    <tr>
+        <td style="text-align:center;">26</td>
+        <td>
+            <strong>1) 차시명:</strong> TensorFlow/Keras 기초와 첫 번째 딥러닝 모델<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>TensorFlow와 Keras의 관계를 이해한다</li>
+                <li>Sequential 모델로 간단한 신경망을 구성한다</li>
+                <li>compile, fit, evaluate의 역할을 파악한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>Keras: 고수준 딥러닝 API, TensorFlow 백엔드</li>
+                <li>Sequential([Dense, Activation, ...]) 구조</li>
+                <li>compile(optimizer, loss, metrics), fit(X, y, epochs, batch_size)</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 27 -->
+    <tr>
+        <td style="text-align:center;">27</td>
+        <td>
+            <strong>1) 차시명:</strong> CNN 기초 - 합성곱과 풀링<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>합성곱(Convolution) 연산의 원리를 이해한다</li>
+                <li>필터(커널)가 특징을 추출하는 방식을 설명한다</li>
+                <li>풀링(Pooling)의 역할과 종류를 파악한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>합성곱: 필터를 슬라이딩하며 지역 특징 추출</li>
+                <li>스트라이드(stride), 패딩(padding)의 의미</li>
+                <li>MaxPooling, AveragePooling: 공간 크기 축소, 과적합 방지</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 28 -->
+    <tr>
+        <td style="text-align:center;">28</td>
+        <td>
+            <strong>1) 차시명:</strong> CNN 실습 - MNIST 손글씨 분류<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>CNN 모델을 Keras로 구성하고 학습한다</li>
+                <li>Conv2D, MaxPooling2D, Flatten, Dense 레이어를 연결한다</li>
+                <li>학습 결과를 시각화하고 성능을 평가한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>MNIST 데이터셋: 28×28 그레이스케일, 10개 숫자 클래스</li>
+                <li>데이터 전처리: 정규화(0~1), reshape((28, 28, 1))</li>
+                <li>CNN 구조: Conv → Pool → Conv → Pool → Flatten → Dense</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제6-초급]</strong><br>Fashion-MNIST CNN 분류</td>
+    </tr>
+
+    <!-- 차시 29 -->
+    <tr>
+        <td style="text-align:center;">29</td>
+        <td>
+            <strong>1) 차시명:</strong> YOLO를 활용한 객체 탐지 이해<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>이미지 분류와 객체 탐지의 차이를 설명한다</li>
+                <li>YOLO(You Only Look Once)의 작동 원리를 이해한다</li>
+                <li>사전 학습된 YOLO 모델을 활용하여 객체 탐지를 수행한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>객체 탐지: 위치(Bounding Box) + 클래스 분류</li>
+                <li>YOLO: 그리드 기반 1-Stage Detector, 실시간 처리 가능</li>
+                <li>Ultralytics YOLOv8 활용 실습 (사전 학습 모델)</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 30 -->
+    <tr>
+        <td style="text-align:center;">30</td>
+        <td>
+            <strong>1) 차시명:</strong> RNN 기초 - 순환신경망의 이해<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>순차 데이터(시계열, 텍스트)의 특성을 설명한다</li>
+                <li>RNN의 순환 구조와 은닉 상태(hidden state)를 이해한다</li>
+                <li>RNN의 한계(장기 의존성 문제)를 파악한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>순차 데이터: 순서가 중요한 데이터 (시계열, 문장 등)</li>
+                <li>RNN 구조: h_t = tanh(W_hh × h_{t-1} + W_xh × x_t)</li>
+                <li>BPTT(Backpropagation Through Time)와 기울기 소실/폭발</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 31 -->
+    <tr>
+        <td style="text-align:center;">31</td>
+        <td>
+            <strong>1) 차시명:</strong> LSTM과 시계열 예측 실습<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>LSTM의 게이트 구조(망각, 입력, 출력)를 이해한다</li>
+                <li>LSTM이 장기 의존성 문제를 해결하는 원리를 설명한다</li>
+                <li>AI Hub 또는 공공 시계열 데이터로 예측 모델을 구축한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>LSTM 셀: Cell State(장기 메모리) + Hidden State(단기 메모리)</li>
+                <li>망각 게이트, 입력 게이트, 출력 게이트의 역할</li>
+                <li>Keras LSTM 레이어를 활용한 시계열 예측</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제6-중급]</strong><br>공공 시계열 데이터 LSTM 예측</td>
+    </tr>
+
+    <!-- 차시 32 -->
+    <tr>
+        <td style="text-align:center;">32</td>
+        <td>
+            <strong>1) 차시명:</strong> 비지도학습 (1) - 클러스터링 (K-means)<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>비지도학습의 개념과 활용 사례를 설명한다</li>
+                <li>K-means 알고리즘의 작동 원리를 이해한다</li>
+                <li>엘보우 방법으로 최적 클러스터 수를 결정한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>비지도학습: 레이블 없이 데이터 구조 파악</li>
+                <li>K-means: 중심점 초기화 → 할당 → 업데이트 반복</li>
+                <li>엘보우 방법: 관성(inertia) 변화율로 K 결정</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 33 -->
+    <tr>
+        <td style="text-align:center;">33</td>
+        <td>
+            <strong>1) 차시명:</strong> 비지도학습 (2) - 오토인코더<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>오토인코더의 구조(인코더-잠재공간-디코더)를 이해한다</li>
+                <li>차원 축소와 이상 탐지에서의 활용을 설명한다</li>
+                <li>Keras로 간단한 오토인코더를 구현한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>오토인코더: 입력을 재구성하는 신경망</li>
+                <li>잠재 공간(Latent Space): 압축된 특징 표현</li>
+                <li>이상 탐지: 재구성 오차가 큰 샘플 = 이상치</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 34 -->
+    <tr>
+        <td style="text-align:center;">34</td>
+        <td>
+            <strong>1) 차시명:</strong> GAN 기초와 실습<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>GAN(Generative Adversarial Network)의 구조를 이해한다</li>
+                <li>생성자(Generator)와 판별자(Discriminator)의 역할을 설명한다</li>
+                <li>간단한 GAN으로 이미지를 생성한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>GAN: 생성자 vs 판별자의 적대적 학습</li>
+                <li>생성자: 랜덤 노이즈 → 가짜 이미지 생성</li>
+                <li>판별자: 진짜/가짜 이미지 구분</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;"><strong>[실습과제7]</strong><br>MNIST GAN 이미지 생성</td>
+    </tr>
+
+    <!-- 차시 35 -->
+    <tr>
+        <td style="text-align:center;">35</td>
+        <td>
+            <strong>1) 차시명:</strong> 트랜스포머 구조의 이해<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>Self-Attention 메커니즘의 원리를 이해한다</li>
+                <li>트랜스포머의 Encoder-Decoder 구조를 설명한다</li>
+                <li>RNN 대비 트랜스포머의 장점(병렬 처리)을 파악한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>Attention: Query, Key, Value 개념</li>
+                <li>Self-Attention: 문장 내 단어들 간의 관계 파악</li>
+                <li>트랜스포머: 인코더 블록, 디코더 블록, Multi-Head Attention</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 36 -->
+    <tr>
+        <td style="text-align:center;">36</td>
+        <td>
+            <strong>1) 차시명:</strong> LLM과 임베딩의 이해<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>대규모 언어 모델(LLM)의 발전 과정을 설명한다</li>
+                <li>단어/문장 임베딩의 개념과 활용을 이해한다</li>
+                <li>사전 학습(Pre-training)과 미세조정(Fine-tuning)을 구분한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>GPT, BERT 등 LLM의 기본 구조</li>
+                <li>Word2Vec, FastText, Sentence Transformers 임베딩</li>
+                <li>임베딩 공간에서의 유사도 계산 (코사인 유사도)</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- Part IV. 서비스 확장 -->
+    <tr class="part-title">
+        <td colspan="4"><strong>Part IV. 서비스 확장 (37~40차시)</strong></td>
+    </tr>
+
+    <!-- 차시 37 -->
+    <tr>
+        <td style="text-align:center;">37</td>
+        <td>
+            <strong>1) 차시명:</strong> Streamlit을 활용한 웹 앱 구축<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>Streamlit의 기본 구조와 실행 방법을 이해한다</li>
+                <li>학습된 모델을 Streamlit 앱에 연동한다</li>
+                <li>사용자 입력을 받아 예측 결과를 표시한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>Streamlit 설치 및 기본 컴포넌트(text, slider, button)</li>
+                <li>st.file_uploader()로 사용자 데이터 업로드</li>
+                <li>저장된 모델 로드 및 예측 결과 시각화</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 38 -->
+    <tr>
+        <td style="text-align:center;">38</td>
+        <td>
+            <strong>1) 차시명:</strong> FastAPI 기초와 모델 API 구축<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>REST API의 기본 개념(GET, POST)을 이해한다</li>
+                <li>FastAPI로 간단한 API 서버를 구축한다</li>
+                <li>학습된 모델을 API로 서빙하는 방법을 익힌다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>FastAPI 설치, 라우팅, 요청/응답 처리</li>
+                <li>Pydantic을 활용한 데이터 검증</li>
+                <li>모델 로드 및 /predict 엔드포인트 구현</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론+실습</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 39 -->
+    <tr>
+        <td style="text-align:center;">39</td>
+        <td>
+            <strong>1) 차시명:</strong> 모델 배포와 서비스화 사례 분석<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>모델 배포의 주요 방식(Cloud, Edge, Serverless)을 비교한다</li>
+                <li>MLOps의 기본 개념과 필요성을 이해한다</li>
+                <li>실제 AI 서비스 사례를 분석한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>배포 환경: AWS, GCP, Azure, On-premise</li>
+                <li>컨테이너(Docker)와 서버리스(Lambda) 개념 소개</li>
+                <li>MLOps: 모델 버전 관리, 모니터링, 재학습 파이프라인</li>
+                <li>사례: 네이버 클로바, 카카오 AI, 제조 현장 AI 적용 사례</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론(사례분석)</td>
+        <td style="text-align:center;">-</td>
+    </tr>
+
+    <!-- 차시 40 -->
+    <tr>
+        <td style="text-align:center;">40</td>
+        <td>
+            <strong>1) 차시명:</strong> 과정 종합 및 최종 프로젝트 안내<br><br>
+            <strong>2) 학습목표:</strong>
+            <ul>
+                <li>전 과정의 핵심 개념을 복습하고 정리한다</li>
+                <li>최종 프로젝트의 주제와 평가 기준을 이해한다</li>
+                <li>AI 분야의 추가 학습 방향을 파악한다</li>
+            </ul>
+            <strong>3) 학습내용:</strong>
+            <ul>
+                <li>Part I~IV 핵심 개념 요약</li>
+                <li>최종 프로젝트 주제 선정 및 진행 방법 안내</li>
+                <li>AI 개발자 진로, 자격증, 추가 학습 리소스 소개</li>
+            </ul>
+        </td>
+        <td style="text-align:center;">이론</td>
+        <td style="text-align:center;"><strong>[최종 프로젝트]</strong><br>공개 데이터셋 활용 AI 예측 모델 및 웹 서비스 구축</td>
+    </tr>
+</table>
+
+<!-- 실습과제 및 프로젝트 요약 -->
+<h2 style="margin-top:30px;">실습과제 및 프로젝트 요약</h2>
+
+<table>
+    <tr>
+        <th width="8%">차시</th>
+        <th width="25%">과제명</th>
+        <th width="10%">난이도</th>
+        <th width="57%">내용</th>
+    </tr>
+    <tr>
+        <td style="text-align:center;">3</td>
+        <td>실습과제 1</td>
+        <td style="text-align:center;">초급</td>
+        <td>Kaggle 데이터셋 다운로드 및 구조 파악 보고서</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">8</td>
+        <td>실습과제 2</td>
+        <td style="text-align:center;">초급</td>
+        <td>UCI Iris 데이터 t-검정 수행</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">10</td>
+        <td>실습과제 2</td>
+        <td style="text-align:center;">중급</td>
+        <td>공공데이터 범주형 변수 카이제곱 검정</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">13</td>
+        <td>실습과제 3</td>
+        <td style="text-align:center;">초급</td>
+        <td>기상 데이터 시계열 전처리 및 시각화</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">17</td>
+        <td>실습과제 4</td>
+        <td style="text-align:center;">초급</td>
+        <td>UCI Wine 품종 분류 모델</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">19</td>
+        <td>실습과제 4</td>
+        <td style="text-align:center;">중급</td>
+        <td>PCA 적용 후 분류 성능 비교</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">24</td>
+        <td>실습과제 5</td>
+        <td style="text-align:center;">중급</td>
+        <td>2층 신경망 역전파 직접 구현</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">28</td>
+        <td>실습과제 6</td>
+        <td style="text-align:center;">초급</td>
+        <td>Fashion-MNIST CNN 분류</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">31</td>
+        <td>실습과제 6</td>
+        <td style="text-align:center;">중급</td>
+        <td>공공 시계열 데이터 LSTM 예측</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">34</td>
+        <td>실습과제 7</td>
+        <td style="text-align:center;">중급</td>
+        <td>MNIST GAN 이미지 생성</td>
+    </tr>
+    <tr>
+        <td style="text-align:center;">40</td>
+        <td><strong>최종 프로젝트</strong></td>
+        <td style="text-align:center;">종합</td>
+        <td>공개 데이터셋을 활용한 AI 예측 모델 및 웹 서비스 구축</td>
+    </tr>
+</table>
+
+<!-- 최종 프로젝트 상세 -->
+<h3>최종 프로젝트 평가 기준</h3>
+<table>
+    <tr>
+        <th width="40%">평가 항목</th>
+        <th width="15%">배점</th>
+        <th width="45%">세부 내용</th>
+    </tr>
+    <tr>
+        <td>문제 정의의 명확성</td>
+        <td style="text-align:center;">10%</td>
+        <td>해결하고자 하는 문제와 목표가 명확하게 정의되었는가</td>
+    </tr>
+    <tr>
+        <td>데이터 전처리 및 분석의 적절성</td>
+        <td style="text-align:center;">20%</td>
+        <td>결측치, 이상치 처리, 스케일링 등 전처리가 적절하게 수행되었는가</td>
+    </tr>
+    <tr>
+        <td>모델 선택 및 학습의 타당성</td>
+        <td style="text-align:center;">30%</td>
+        <td>문제 유형에 적합한 모델이 선택되고 학습되었는가</td>
+    </tr>
+    <tr>
+        <td>모델 평가 및 해석</td>
+        <td style="text-align:center;">20%</td>
+        <td>적절한 평가지표 사용, 결과 해석 및 개선점 도출</td>
+    </tr>
+    <tr>
+        <td>서비스 구현 (Streamlit/FastAPI)</td>
+        <td style="text-align:center;">10%</td>
+        <td>모델을 활용한 간단한 서비스가 구현되었는가</td>
+    </tr>
+    <tr>
+        <td>보고서 및 발표</td>
+        <td style="text-align:center;">10%</td>
+        <td>문서화 품질, 발표 논리성</td>
+    </tr>
+</table>
+
+<p style="margin-top:20px; font-size:9pt; color:#666;">
+    ※ 본 강의계획서는 K디지털기초역량훈련 AI 기초체력과정 양식에 맞추어 작성되었습니다.<br>
+    ※ 이 문서를 Word에서 열어 편집하려면: 파일 > 열기 > 파일 형식을 "모든 웹 페이지"로 선택하여 열기
+</p>
+
+</body>
+</html>
