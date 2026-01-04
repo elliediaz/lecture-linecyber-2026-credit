@@ -1,6 +1,13 @@
 """
-[24차시] 모델 해석과 특성 중요도 분석 - 실습 코드
-학습목표: 모델 해석의 필요성, Feature Importance, Permutation Importance
+[24차시] 모델 해석과 변수별 영향력 분석 - 실습 코드
+제조 AI 과정 | Part IV. AI 서비스화와 활용
+
+학습목표:
+1. 모델 해석의 필요성을 이해한다
+2. 특성 중요도(Feature Importance)를 분석한다
+3. Permutation Importance를 활용한다
+
+실행: python code.py
 """
 
 import numpy as np
@@ -14,6 +21,11 @@ plt.rcParams['axes.unicode_minus'] = False
 # ============================================================
 # 1. 데이터 준비
 # ============================================================
+print("=" * 60)
+print("[24차시] 모델 해석과 변수별 영향력 분석")
+print("제조 AI 과정 | Part IV. AI 서비스화와 활용")
+print("=" * 60)
+print()
 print("=" * 50)
 print("1. 제조 데이터 준비")
 print("=" * 50)
