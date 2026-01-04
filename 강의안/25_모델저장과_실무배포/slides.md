@@ -2,18 +2,23 @@
 marp: true
 theme: default
 paginate: true
-header: 'AI 기초체력훈련 | 25차시'
-footer: '© 2026 AI 기초체력훈련'
+header: '제조 AI 과정 | 25차시'
+footer: '제조데이터를 활용한 AI 이해와 예측 모델 구축'
 style: |
-  section { font-family: 'Malgun Gothic', sans-serif; }
-  h1 { color: #2563eb; }
-  h2 { color: #1e40af; }
-  code { background-color: #f1f5f9; }
+  section {
+    font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+    background-color: #f8fafc;
+  }
+  h1 { color: #1e40af; font-size: 2.2em; }
+  h2 { color: #2563eb; font-size: 1.6em; }
+  h3 { color: #3b82f6; }
+  code { background-color: #e2e8f0; padding: 2px 6px; border-radius: 4px; }
+  pre { background-color: #1e293b; color: #e2e8f0; }
 ---
 
 # 모델 저장과 실무 배포 준비
 
-## 25차시 | AI 기초체력훈련 (Pre AI-Campus)
+## 25차시 | Part IV. AI 서비스화와 활용
 
 **학습한 모델을 저장하고 재사용하기**
 
@@ -29,7 +34,7 @@ style: |
 
 ---
 
-# 왜 모델을 저장해야 하는가?
+# 왜 모델을 저장해야 하나?
 
 ## 학습에는 시간이 걸린다!
 
@@ -53,10 +58,10 @@ style: |
 ```python
 import joblib
 
-# 저장
+# 저장 (한 줄!)
 joblib.dump(model, 'model.pkl')
 
-# 불러오기
+# 불러오기 (한 줄!)
 loaded_model = joblib.load('model.pkl')
 
 # 예측
@@ -70,9 +75,9 @@ predictions = loaded_model.predict(X_new)
 
 ---
 
-# 저장 예시
+# 저장 워크플로우
 
-## 전체 워크플로우
+## 전체 흐름
 
 ```python
 from sklearn.ensemble import RandomForestClassifier
@@ -107,7 +112,7 @@ model = joblib.load('quality_model.pkl')
 new_data = np.array([[85, 50, 100, 1.0]])
 prediction = model.predict(new_data)
 
-print(f"예측 결과: {'불량' if prediction[0] == 1 else '정상'}")
+print(f"예측: {'불량' if prediction[0] == 1 else '정상'}")
 ```
 
 ### 장점
@@ -134,18 +139,11 @@ joblib.dump(scaler, 'scaler.pkl')
 joblib.dump(model, 'model.pkl')
 ```
 
-```python
-# 불러올 때
-scaler = joblib.load('scaler.pkl')
-model = joblib.load('model.pkl')
-
-X_new_scaled = scaler.transform(X_new)  # 같은 스케일링!
-prediction = model.predict(X_new_scaled)
-```
+> 예측할 때 같은 스케일러를 써야 올바른 결과!
 
 ---
 
-# 파이프라인 저장
+# 파이프라인으로 한번에
 
 ## 더 깔끔한 방법
 
@@ -153,9 +151,7 @@ prediction = model.predict(X_new_scaled)
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
-import joblib
 
-# 파이프라인으로 묶기
 pipeline = Pipeline([
     ('scaler', StandardScaler()),
     ('model', RandomForestClassifier())
@@ -163,7 +159,7 @@ pipeline = Pipeline([
 
 pipeline.fit(X_train, y_train)
 
-# 한 파일로 저장!
+# 하나의 파일로 저장!
 joblib.dump(pipeline, 'pipeline.pkl')
 ```
 
@@ -171,30 +167,157 @@ joblib.dump(pipeline, 'pipeline.pkl')
 
 ---
 
-# pickle vs joblib
+# 이론 정리
 
-## 비교
+## 모델 저장 핵심
 
-| | pickle | joblib |
-|--|--------|--------|
-| 내장 | Python 내장 | 설치 필요 |
-| 대용량 | 느림 | **빠름** |
-| NumPy | 비효율 | **최적화** |
-| 사용 | 일반 객체 | ML 모델 권장 |
+| 개념 | 코드 |
+|------|------|
+| 저장 | joblib.dump(model, 'file.pkl') |
+| 불러오기 | joblib.load('file.pkl') |
+| 전처리기 | scaler도 함께 저장 |
+| 파이프라인 | Pipeline으로 묶어서 관리 |
 
+---
+
+# - 실습편 -
+
+## 25차시
+
+**모델 저장과 배포 실습**
+
+---
+
+# 실습 개요
+
+## 품질 예측 모델 저장
+
+### 목표
+- joblib으로 모델 저장/불러오기
+- 전처리기 함께 관리
+- 메타데이터 저장
+- 배포 체크리스트 확인
+
+### 실습 환경
 ```python
-# pickle
-import pickle
-with open('model.pkl', 'wb') as f:
-    pickle.dump(model, f)
-
-# joblib (더 간단)
-joblib.dump(model, 'model.pkl')
+import joblib
+from sklearn.pipeline import Pipeline
 ```
 
 ---
 
-# 모델 버전 관리
+# 실습 1: 모델 학습
+
+## 랜덤포레스트 모델
+
+```python
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.preprocessing import StandardScaler
+
+# 전처리
+scaler = StandardScaler()
+X_train_scaled = scaler.fit_transform(X_train)
+
+# 모델 학습
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+model.fit(X_train_scaled, y_train)
+
+print(f"정확도: {model.score(X_test_scaled, y_test):.3f}")
+```
+
+---
+
+# 실습 2: joblib 저장
+
+## 모델과 전처리기 저장
+
+```python
+import joblib
+
+# 모델 저장
+joblib.dump(model, 'model.pkl')
+print("모델 저장 완료!")
+
+# 전처리기 저장
+joblib.dump(scaler, 'scaler.pkl')
+print("전처리기 저장 완료!")
+```
+
+```python
+import os
+print(f"model.pkl: {os.path.getsize('model.pkl')/1024:.1f} KB")
+```
+
+---
+
+# 실습 3: 모델 불러오기
+
+## 저장된 모델로 예측
+
+```python
+# 불러오기
+loaded_model = joblib.load('model.pkl')
+loaded_scaler = joblib.load('scaler.pkl')
+
+# 새 데이터 예측
+new_data = np.array([[90, 55, 100, 1.0]])
+new_scaled = loaded_scaler.transform(new_data)
+prediction = loaded_model.predict(new_scaled)
+
+print(f"예측: {'불량' if prediction[0] == 1 else '정상'}")
+```
+
+---
+
+# 실습 4: 파이프라인
+
+## 하나로 묶어서 관리
+
+```python
+from sklearn.pipeline import Pipeline
+
+pipeline = Pipeline([
+    ('scaler', StandardScaler()),
+    ('model', RandomForestClassifier(n_estimators=100))
+])
+
+pipeline.fit(X_train, y_train)
+joblib.dump(pipeline, 'pipeline.pkl')
+
+# 불러와서 바로 예측
+loaded_pipeline = joblib.load('pipeline.pkl')
+pred = loaded_pipeline.predict(new_data)  # 스케일링 자동!
+```
+
+---
+
+# 실습 5: 메타데이터 저장
+
+## 버전 정보 함께 관리
+
+```python
+from datetime import datetime
+
+model_package = {
+    'model': model,
+    'scaler': scaler,
+    'feature_names': ['temp', 'humidity', 'speed', 'pressure'],
+    'version': '1.0.0',
+    'trained_date': datetime.now().isoformat(),
+    'accuracy': 0.92
+}
+
+joblib.dump(model_package, 'model_package.pkl')
+```
+
+```python
+info = joblib.load('model_package.pkl')
+print(f"버전: {info['version']}, 정확도: {info['accuracy']}")
+```
+
+---
+
+# 실습 6: 버전 관리
 
 ## 파일명 규칙
 
@@ -214,38 +337,7 @@ models/
 
 ---
 
-# 메타데이터 저장
-
-## 모델 정보 함께 관리
-
-```python
-import joblib
-from datetime import datetime
-
-# 모델과 메타데이터
-model_info = {
-    'model': model,
-    'scaler': scaler,
-    'feature_names': ['temp', 'humidity', 'speed', 'pressure'],
-    'version': '2.0',
-    'trained_date': datetime.now().isoformat(),
-    'accuracy': 0.92,
-    'description': '품질 예측 모델 v2'
-}
-
-joblib.dump(model_info, 'model_package.pkl')
-```
-
-```python
-# 불러오기
-info = joblib.load('model_package.pkl')
-model = info['model']
-print(f"버전: {info['version']}, 정확도: {info['accuracy']}")
-```
-
----
-
-# 실무 배포 체크리스트
+# 실습 7: 배포 체크리스트
 
 ## 배포 전 확인사항
 
@@ -259,14 +351,9 @@ print(f"버전: {info['version']}, 정확도: {info['accuracy']}")
 - [ ] 전처리기 파일 존재
 - [ ] 버전 정보 기록
 
-### 3. 환경 확인
-- [ ] Python 버전 일치
-- [ ] scikit-learn 버전 일치
-- [ ] requirements.txt 작성
-
 ---
 
-# requirements.txt
+# 실습 8: requirements.txt
 
 ## 패키지 버전 고정
 
@@ -291,6 +378,19 @@ pip install -r requirements.txt
 
 ---
 
+# 실습 정리
+
+## 핵심 체크포인트
+
+- [ ] joblib.dump()로 모델 저장
+- [ ] joblib.load()로 모델 불러오기
+- [ ] 전처리기도 함께 저장
+- [ ] Pipeline으로 한번에 관리
+- [ ] 메타데이터 포함 저장
+- [ ] requirements.txt 작성
+
+---
+
 # 배포 구조 예시
 
 ## 프로젝트 폴더
@@ -309,51 +409,34 @@ ml_project/
 
 ---
 
-# FastAPI에서 모델 로드
+# 다음 차시 예고
 
-## 실무 패턴
+## 26차시: AI 프로젝트 종합 실습
 
-```python
-from fastapi import FastAPI
-import joblib
+### 학습 내용
+- 전체 ML 워크플로우 종합 실습
+- 데이터 수집 → 모델 배포 프로젝트
+- 과정 총정리 및 후속 학습 안내
 
-app = FastAPI()
-
-# 앱 시작 시 한 번만 로드
-model = joblib.load('models/model_v2.0.pkl')
-scaler = joblib.load('models/scaler_v2.0.pkl')
-
-@app.post("/predict")
-def predict(data: PredictionInput):
-    features = [[data.temp, data.humidity, data.speed, data.pressure]]
-    scaled = scaler.transform(features)
-    prediction = model.predict(scaled)[0]
-    return {"result": "불량" if prediction == 1 else "정상"}
-```
+> 25차시 동안 배운 모든 내용을 **종합 실습**!
 
 ---
 
-# 과정 총정리
+# 정리 및 Q&A
 
-## 25차시 AI 기초체력훈련
+## 오늘의 핵심
 
-| Part | 내용 |
-|------|------|
-| **I** | 윤리, Python, NumPy, Pandas |
-| **II** | 통계, EDA, 전처리, 시각화 |
-| **III** | ML 모델, 평가, 튜닝, 딥러닝 |
-| **IV** | API, 웹앱, 해석, **배포** |
-
-> 데이터 → 분석 → 모델 → 배포까지 전 과정 완료!
+1. **joblib.dump()**: 모델 저장
+2. **joblib.load()**: 모델 불러오기
+3. **전처리기 저장**: scaler도 함께
+4. **Pipeline**: 하나로 묶어서 관리
+5. **메타데이터**: 버전, 날짜, 성능 기록
+6. **requirements.txt**: 환경 고정
 
 ---
 
 # 감사합니다
 
-## AI 기초체력훈련 25차시
+## 25차시: 모델 저장과 실무 배포 준비
 
-**모델 저장과 실무 배포 준비**
-
-25차시 과정을 모두 마쳤습니다!
-
-**수고하셨습니다!**
+**학습한 모델을 저장하고 재사용하는 방법을 배웠습니다!**
