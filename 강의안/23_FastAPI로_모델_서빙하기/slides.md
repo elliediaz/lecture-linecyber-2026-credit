@@ -2,20 +2,25 @@
 marp: true
 theme: default
 paginate: true
-header: 'AI 기초체력훈련 | 23차시'
-footer: '© 2026 AI 기초체력훈련'
+header: '제조 AI 과정 | 23차시'
+footer: '제조데이터를 활용한 AI 이해와 예측 모델 구축'
 style: |
-  section { font-family: 'Malgun Gothic', sans-serif; }
-  h1 { color: #2563eb; }
-  h2 { color: #1e40af; }
-  code { background-color: #f1f5f9; }
+  section {
+    font-family: 'Malgun Gothic', 'Apple SD Gothic Neo', sans-serif;
+    background-color: #f8fafc;
+  }
+  h1 { color: #1e40af; font-size: 2.2em; }
+  h2 { color: #2563eb; font-size: 1.6em; }
+  h3 { color: #3b82f6; }
+  code { background-color: #e2e8f0; padding: 2px 6px; border-radius: 4px; }
+  pre { background-color: #1e293b; color: #e2e8f0; }
 ---
 
-# FastAPI로 모델 서빙하기
+# FastAPI로 예측 서비스 만들기
 
-## 23차시 | AI 기초체력훈련 (Pre AI-Campus)
+## 23차시 | Part IV. AI 서비스화와 활용
 
-**ML 모델을 API로 배포하기**
+**ML 모델을 REST API로 배포하기**
 
 ---
 
@@ -38,10 +43,25 @@ pip install fastapi uvicorn
 ```
 
 ### 특징
-- **빠름**: 높은 성능 (Node.js, Go 수준)
+- **빠름**: Node.js, Go 수준의 성능
 - **쉬움**: 직관적인 코드
 - **자동 문서화**: Swagger UI 자동 생성
 - **타입 힌트**: Python 타입 기반 검증
+
+---
+
+# Streamlit vs FastAPI
+
+## 역할 비교
+
+| 구분 | Streamlit | FastAPI |
+|------|-----------|---------|
+| 용도 | 대시보드, UI | 백엔드 API |
+| 사용자 | 사람이 직접 사용 | 다른 프로그램이 호출 |
+| 출력 | 웹 페이지 | JSON 데이터 |
+| 특징 | 시각적 상호작용 | 프로그래밍 인터페이스 |
+
+> **조합**: FastAPI(백엔드) + Streamlit(프론트엔드)
 
 ---
 
@@ -87,7 +107,22 @@ http://localhost:8000/docs
 http://localhost:8000/redoc
 ```
 
-- 대안 문서 UI
+- 대안 문서 UI (더 깔끔한 스타일)
+
+---
+
+# HTTP 메서드
+
+## REST API 기본
+
+| 메서드 | 용도 | 예시 |
+|--------|------|------|
+| GET | 데이터 조회 | 모델 정보 확인 |
+| POST | 데이터 생성/처리 | 예측 요청 |
+| PUT | 데이터 수정 | 설정 업데이트 |
+| DELETE | 데이터 삭제 | 캐시 삭제 |
+
+> ML 예측 API는 주로 **POST** 사용
 
 ---
 
@@ -104,9 +139,11 @@ def read_item(item_id: int):
 ```
 
 ```python
-@app.get("/users/{user_id}/items/{item_id}")
-def read_user_item(user_id: int, item_id: int):
-    return {"user_id": user_id, "item_id": item_id}
+@app.get("/lines/{line_id}/sensors/{sensor_id}")
+def read_sensor(line_id: str, sensor_id: int):
+    return {"line": line_id, "sensor": sensor_id}
+
+# GET /lines/A/sensors/1
 ```
 
 ---
@@ -137,65 +174,174 @@ def search(q: Optional[str] = None):
 
 # POST 요청
 
-## Request Body
+## Pydantic 모델
 
 ```python
 from pydantic import BaseModel
 
-class Item(BaseModel):
-    name: str
-    price: float
-    quantity: int = 1
-
-@app.post("/items")
-def create_item(item: Item):
-    return {
-        "name": item.name,
-        "total": item.price * item.quantity
-    }
-```
-
-> **Pydantic**으로 데이터 검증!
-
----
-
-# ML 모델 서빙
-
-## 예측 API 만들기
-
-```python
-from fastapi import FastAPI
-from pydantic import BaseModel
-import joblib
-import numpy as np
-
-app = FastAPI(title="품질 예측 API")
-
-# 모델 로드
-model = joblib.load("model.pkl")
-
-class PredictionInput(BaseModel):
+class SensorData(BaseModel):
     temperature: float
     humidity: float
     speed: float
 
-@app.post("/predict")
-def predict(data: PredictionInput):
-    features = np.array([[data.temperature, data.humidity, data.speed]])
-    prediction = model.predict(features)[0]
-    return {"prediction": int(prediction), "label": "불량" if prediction == 1 else "정상"}
+@app.post("/data")
+def create_data(data: SensorData):
+    return {
+        "received": True,
+        "temperature": data.temperature
+    }
+```
+
+> **Pydantic**으로 데이터 자동 검증!
+
+---
+
+# 이론 정리
+
+## FastAPI 핵심
+
+| 개념 | 설명 |
+|------|------|
+| FastAPI | Python 웹 프레임워크 |
+| uvicorn | ASGI 서버 |
+| @app.get | GET 엔드포인트 |
+| @app.post | POST 엔드포인트 |
+| Pydantic | 데이터 검증 모델 |
+| /docs | 자동 문서 |
+
+---
+
+# - 실습편 -
+
+## 23차시
+
+**품질 예측 API 만들기**
+
+---
+
+# 실습 개요
+
+## ML 모델 예측 API
+
+### 목표
+- FastAPI로 API 서버 만들기
+- 예측 엔드포인트 구현
+- 요청/응답 테스트
+
+### 실습 환경
+```python
+from fastapi import FastAPI
+from pydantic import BaseModel
+import numpy as np
 ```
 
 ---
 
-# 요청 예시
+# 실습 1: 기본 API 구조
+
+## FastAPI 앱 생성
+
+```python
+from fastapi import FastAPI
+
+app = FastAPI(
+    title="품질 예측 API",
+    description="제조 품질을 예측하는 API",
+    version="1.0.0"
+)
+
+@app.get("/")
+def root():
+    return {"message": "품질 예측 API 서버"}
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+```
+
+---
+
+# 실습 2: 입력 스키마 정의
+
+## Pydantic 모델
+
+```python
+from pydantic import BaseModel, Field
+
+class PredictionInput(BaseModel):
+    temperature: float = Field(..., ge=0, le=200, description="온도 (°C)")
+    humidity: float = Field(..., ge=0, le=100, description="습도 (%)")
+    speed: float = Field(..., ge=0, le=200, description="속도 (RPM)")
+
+    class Config:
+        json_schema_extra = {
+            "example": {
+                "temperature": 85.0,
+                "humidity": 50.0,
+                "speed": 100.0
+            }
+        }
+```
+
+---
+
+# 실습 3: 예측 함수
+
+## 간단한 규칙 기반 예측
+
+```python
+def predict_quality(temp, humidity, speed):
+    """품질 예측 (실제로는 ML 모델 사용)"""
+    score = 0
+    if temp > 90:
+        score += 30
+    if humidity > 60:
+        score += 20
+    if speed > 110:
+        score += 15
+
+    probability = min(score / 100, 1.0)
+    prediction = 1 if probability > 0.3 else 0
+    return prediction, probability
+```
+
+---
+
+# 실습 4: 예측 엔드포인트
+
+## POST /predict
+
+```python
+class PredictionOutput(BaseModel):
+    prediction: int
+    probability: float
+    label: str
+
+@app.post("/predict", response_model=PredictionOutput)
+def predict(data: PredictionInput):
+    prediction, probability = predict_quality(
+        data.temperature,
+        data.humidity,
+        data.speed
+    )
+
+    return {
+        "prediction": prediction,
+        "probability": probability,
+        "label": "불량" if prediction == 1 else "정상"
+    }
+```
+
+---
+
+# 실습 5: API 테스트
 
 ## cURL / Python
 
 ```bash
 curl -X POST "http://localhost:8000/predict" \
   -H "Content-Type: application/json" \
-  -d '{"temperature": 90, "humidity": 55, "speed": 100}'
+  -d '{"temperature": 95, "humidity": 65, "speed": 100}'
 ```
 
 ```python
@@ -203,15 +349,15 @@ import requests
 
 response = requests.post(
     "http://localhost:8000/predict",
-    json={"temperature": 90, "humidity": 55, "speed": 100}
+    json={"temperature": 95, "humidity": 65, "speed": 100}
 )
 print(response.json())
-# {"prediction": 1, "label": "불량"}
+# {"prediction": 1, "probability": 0.5, "label": "불량"}
 ```
 
 ---
 
-# 에러 처리
+# 실습 6: 에러 처리
 
 ## HTTPException
 
@@ -220,43 +366,117 @@ from fastapi import HTTPException
 
 @app.post("/predict")
 def predict(data: PredictionInput):
-    if data.temperature < 0 or data.temperature > 200:
+    # 입력 검증
+    if data.temperature < 0:
         raise HTTPException(
             status_code=400,
-            detail="온도는 0~200 범위여야 합니다"
+            detail="온도는 0 이상이어야 합니다"
         )
 
     # 예측 수행
-    ...
+    prediction, probability = predict_quality(...)
+    return {...}
 ```
 
 ---
 
-# 비동기 처리
+# 실습 7: ML 모델 연동
 
-## async/await
+## joblib 모델 로드
 
 ```python
-@app.get("/async-example")
-async def async_example():
-    # 비동기 작업 가능
-    return {"message": "비동기 응답"}
+import joblib
+import numpy as np
+
+# 서버 시작 시 모델 로드
+model = None
+
+@app.on_event("startup")
+def load_model():
+    global model
+    model = joblib.load("quality_model.pkl")
+
+@app.post("/predict/ml")
+def predict_ml(data: PredictionInput):
+    features = np.array([[
+        data.temperature, data.humidity, data.speed
+    ]])
+    prediction = model.predict(features)[0]
+    return {"prediction": int(prediction)}
 ```
-
-### 언제 async?
-- I/O 바운드 작업 (DB, 외부 API)
-- 동시성이 중요할 때
-
-> 단순 ML 예측은 동기로 충분
 
 ---
 
-# 배포
+# 실습 8: 배치 예측
 
-## Docker + Gunicorn
+## 여러 데이터 한번에
+
+```python
+from typing import List
+
+class BatchInput(BaseModel):
+    items: List[PredictionInput]
+
+@app.post("/predict/batch")
+def predict_batch(data: BatchInput):
+    results = []
+    for item in data.items:
+        pred, prob = predict_quality(
+            item.temperature, item.humidity, item.speed
+        )
+        results.append({
+            "prediction": pred,
+            "probability": prob
+        })
+    return {"results": results}
+```
+
+---
+
+# 실습 9: 모델 정보 API
+
+## GET 엔드포인트
+
+```python
+@app.get("/model/info")
+def model_info():
+    return {
+        "name": "Quality Prediction Model",
+        "version": "1.0.0",
+        "features": ["temperature", "humidity", "speed"],
+        "target": "defect (0=정상, 1=불량)"
+    }
+
+@app.get("/model/features")
+def model_features():
+    return {
+        "temperature": {"min": 70, "max": 100, "unit": "°C"},
+        "humidity": {"min": 30, "max": 70, "unit": "%"},
+        "speed": {"min": 80, "max": 120, "unit": "RPM"}
+    }
+```
+
+---
+
+# 실습 정리
+
+## 핵심 체크포인트
+
+- [ ] FastAPI 앱 생성
+- [ ] Pydantic 입력/출력 모델 정의
+- [ ] POST /predict 엔드포인트 구현
+- [ ] HTTPException 에러 처리
+- [ ] /docs에서 API 테스트
+- [ ] requests로 API 호출
+
+---
+
+# 배포 방법
+
+## Docker
 
 ```dockerfile
-FROM python:3.9
+FROM python:3.9-slim
 
 WORKDIR /app
 COPY . .
@@ -266,43 +486,40 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
 
 ```bash
-docker build -t ml-api .
-docker run -p 8000:8000 ml-api
+docker build -t quality-api .
+docker run -p 8000:8000 quality-api
 ```
-
----
-
-# Streamlit vs FastAPI
-
-## 언제 무엇을?
-
-| | Streamlit | FastAPI |
-|--|-----------|---------|
-| 용도 | 대시보드, 데모 | 백엔드 API |
-| 사용자 | 직접 사용 | 다른 프로그램이 호출 |
-| 출력 | 웹 UI | JSON 응답 |
-| 배포 | Streamlit Cloud | Docker, 클라우드 |
-
-> **조합**: FastAPI(백엔드) + Streamlit(프론트)
 
 ---
 
 # 다음 차시 예고
 
-## 24차시: 모델 해석과 특성 중요도
+## 24차시: 모델 해석과 변수별 영향력 분석
 
+### 학습 내용
 - Feature Importance
-- 모델 해석 기법
-- 실무에서의 모델 설명
+- SHAP 값
+- 모델 설명 기법
 
-> 모델이 **왜 그렇게 예측했는지** 설명하기
+> 모델이 **왜 그렇게 예측했는지** 설명하기!
+
+---
+
+# 정리 및 Q&A
+
+## 오늘의 핵심
+
+1. **FastAPI**: 빠른 Python 웹 프레임워크
+2. **Pydantic**: 데이터 검증 모델
+3. **@app.post**: POST 엔드포인트
+4. **HTTPException**: 에러 처리
+5. **/docs**: 자동 API 문서
+6. **uvicorn**: ASGI 서버
 
 ---
 
 # 감사합니다
 
-## AI 기초체력훈련 23차시
+## 23차시: FastAPI로 예측 서비스 만들기
 
-**FastAPI로 모델 서빙하기**
-
-ML 모델을 API로 배포하는 법을 배웠습니다!
+**ML 모델을 REST API로 배포하는 법을 배웠습니다!**
