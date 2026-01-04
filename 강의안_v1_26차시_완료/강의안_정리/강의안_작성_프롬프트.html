@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>강의안 작성 프롬프트 가이드</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">강의안 작성 프롬프트 가이드</h1>
+</header>
+<h1 id="차시-강의안-작성-프롬프트-가이드">26차시 강의안 작성 프롬프트
+가이드</h1>
+<h2 id="과정-개요">1. 과정 개요</h2>
+<table>
+<thead>
+<tr class="header">
+<th>항목</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>과정명</td>
+<td>제조데이터를 활용한 AI 이해와 예측 모델 구축</td>
+</tr>
+<tr class="even">
+<td>대상</td>
+<td>비전공자, AI 입문자</td>
+</tr>
+<tr class="odd">
+<td>형식</td>
+<td>온라인 강의 (녹화 영상)</td>
+</tr>
+<tr class="even">
+<td>차시당 시간</td>
+<td>25분</td>
+</tr>
+<tr class="odd">
+<td>총 차시</td>
+<td>26차시</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="공통-디자인-가이드라인">2. 공통 디자인 가이드라인</h2>
+<h3 id="슬라이드-디자인-표준">2.1 슬라이드 디자인 표준</h3>
+<pre><code>색상 팔레트:
+- 주색상: #2563EB (파란색) - 제목, 강조
+- 보조색상: #10B981 (초록색) - 실습, 코드
+- 배경색: #F8FAFC (밝은 회색)
+- 텍스트: #1E293B (진한 회색)
+
+폰트:
+- 제목: Pretendard Bold, 32pt
+- 본문: Pretendard Regular, 18pt
+- 코드: D2Coding, 16pt
+
+레이아웃:
+- 16:9 비율
+- 상단 헤더: 차시 번호 + 차시명
+- 하단 푸터: 페이지 번호 / 전체 페이지</code></pre>
+<h3 id="슬라이드-구성-표준-1416장">2.2 슬라이드 구성 표준 (14~16장)</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">순서</th>
+<th>슬라이드 유형</th>
+<th>내용</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td>표지</td>
+<td>차시명, 학습목표 미리보기</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td>학습목표</td>
+<td>3개 학습목표 (체크박스 형태)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3-4</td>
+<td>이전 차시 복습</td>
+<td>핵심 내용 요약 (해당 시)</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">5-10</td>
+<td>핵심 내용</td>
+<td>개념 설명 + 다이어그램</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11-13</td>
+<td>실습 가이드</td>
+<td>코드 예시 + 실행 결과</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td>핵심 요약</td>
+<td>3줄 요약</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15</td>
+<td>다음 차시 예고</td>
+<td>다음 주제 미리보기</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">16</td>
+<td>마무리</td>
+<td>학습 체크리스트</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="분-강의-시간-배분">3. 25분 강의 시간 배분</h2>
+<table>
+<thead>
+<tr class="header">
+<th>구간</th>
+<th>시간</th>
+<th>내용</th>
+<th>슬라이드 수</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>도입</td>
+<td>2분</td>
+<td>학습목표, 이전 차시 연결</td>
+<td>2-3장</td>
+</tr>
+<tr class="even">
+<td>이론</td>
+<td>8분</td>
+<td>핵심 개념 설명</td>
+<td>5-6장</td>
+</tr>
+<tr class="odd">
+<td>실습</td>
+<td>12분</td>
+<td>코드 실행, 결과 확인</td>
+<td>4-5장</td>
+</tr>
+<tr class="even">
+<td>정리</td>
+<td>3분</td>
+<td>요약, 다음 차시 예고</td>
+<td>2-3장</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="차시별-강의안-생성-프롬프트">4. 차시별 강의안 생성 프롬프트</h2>
+<h3 id="part-i.-ai-윤리와-환경-구축-13차시">Part I. AI 윤리와 환경 구축
+(1~3차시)</h3>
+<h4 id="차시-ai-활용-윤리와-데이터-보호">1차시: AI 활용 윤리와 데이터
+보호</h4>
+<div class="sourceCode" id="cb2"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 1차시 강의안을 작성해주세요.</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: AI 활용 윤리와 데이터 보호</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>AI를 올바르게 사용하기 위한 기본 원칙을 알아본다</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>제조 현장의 데이터 보안 사고 유형과 예방법을 이해한다</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>AI가 만든 결과물의 저작권 문제를 파악한다</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>과정 소개: 문제정의-분석-모델링-평가의 학습 흐름</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>AI 윤리 4가지 원칙 (공정성, 투명성, 책임성, 안전성)</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조업 데이터 보호 규정과 개인정보 처리 기준</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 작성 요구사항</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>비전공자가 이해하기 쉬운 용어 사용</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>제조업 현장 사례 중심 설명</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>각 섹션에 적합한 Mermaid 다이어그램 포함</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>슬라이드 14~16장 분량으로 구성</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## 출력 형식</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Markdown 형식의 강의안</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>각 슬라이드별 내용과 발표 스크립트</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Mermaid 다이어그램 코드</span></code></pre></div>
+<h4 id="차시-python-시작하기">2차시: Python 시작하기</h4>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 2차시 강의안을 작성해주세요.</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: Python 시작하기</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Anaconda와 Jupyter Notebook을 설치하고 실행한다</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Python의 기본 데이터 종류(숫자, 문자, 목록 등)를 이해한다</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>조건문과 반복문으로 간단한 프로그램을 작성한다</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Anaconda 설치 및 작업 환경 만들기</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Python 기본 데이터 종류와 계산</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>조건문(if-else)과 반복문(for, while) 실습</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 작성 요구사항</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>설치 과정 스크린샷 위치 표시</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>제조 현장 데이터 예시 활용 (센서값, 온도 등)</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>실습 코드는 복사-붙여넣기 가능하게 작성</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>흔한 오류와 해결법 포함</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="fu">## 출력 형식</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Markdown 형식의 강의안</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>각 슬라이드별 내용과 발표 스크립트</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>실습 코드 블록</span></code></pre></div>
+<h4 id="차시-제조-데이터-다루기-기초">3차시: 제조 데이터 다루기
+기초</h4>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 3차시 강의안을 작성해주세요.</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 제조 데이터 다루기 기초</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>NumPy 배열의 개념과 기본 연산을 이해한다</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Pandas로 표 형태의 제조 데이터를 다룬다</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>제조 센서 데이터 CSV 파일을 불러와 살펴본다</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>NumPy 배열 만들기, 선택하기, 계산하기</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pandas Series와 DataFrame 기초</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 공정 센서 데이터 불러오기 및 탐색</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조 데이터 예시</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공정 센서 데이터: 온도, 압력, 습도, 진동</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>품질 측정 데이터: 치수, 무게, 강도</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## 출력 형식</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Markdown 형식의 강의안</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>실습용 샘플 CSV 데이터 구조</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pandas 명령어 정리표</span></code></pre></div>
+<hr />
+<h3 id="part-ii.-기초-수리와-데이터-분석-49차시">Part II. 기초 수리와
+데이터 분석 (4~9차시)</h3>
+<h4 id="차시-데이터-요약과-시각화">4차시: 데이터 요약과 시각화</h4>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 4차시 강의안을 작성해주세요.</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 데이터 요약과 시각화</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>평균, 중앙값, 표준편차 등 데이터 요약 수치의 의미를 이해한다</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>Matplotlib으로 기본 그래프를 그린다</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>히스토그램, 상자그림, 산점도를 해석한다</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>대표값(평균, 중앙값, 최빈값)의 의미</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>퍼짐 정도(분산, 표준편차, 범위) 이해</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 품질 측정값 시각화 실습</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조 데이터 시나리오</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제품 치수 측정값 1000개</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>불량률과 온도 관계 데이터</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mermaid 다이어그램 요청</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>기술통계량 종류 마인드맵</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시각화 선택 가이드 플로우차트</span></code></pre></div>
+<h4 id="차시-확률분포와-품질-검정">5차시: 확률분포와 품질 검정</h4>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 5차시 강의안을 작성해주세요.</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 확률분포와 품질 검정</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>정규분포의 개념과 특성을 이해한다</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>가설검정의 기본 개념과 p-value를 해석한다</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>제조 불량률 검정을 수행하고 결과를 해석한다</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>확률분포의 개념과 정규분포</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>68-95-99.7 규칙</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 공정 품질 검정 실습 (t-검정)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 비전공자 친화적 설명 요청</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>수식 최소화, 직관적 설명 중심</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>&quot;품질 관리 기준 충족 여부 판단&quot; 관점으로 설명</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>실제 제조 현장 품질검사 사례 활용</span></code></pre></div>
+<h4 id="차시-상관분석과-예측의-기초">6차시: 상관분석과 예측의 기초</h4>
+<div class="sourceCode" id="cb7"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 6차시 강의안을 작성해주세요.</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 상관분석과 예측의 기초</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>상관계수의 의미와 해석 방법을 이해한다</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>단순회귀분석의 개념과 원리를 이해한다</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>sklearn으로 예측 모델을 만들어본다</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>상관계수와 해석 기준 (강한/약한 관계)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>회귀분석의 원리 (최적의 직선 찾기)</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 공정 온도와 불량률 관계 분석 실습</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조 데이터 시나리오</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공정 온도(X) → 불량률(Y) 예측</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>작업 시간(X) → 생산량(Y) 예측</span></code></pre></div>
+<h4 id="차시-제조-데이터-전처리-1">7차시: 제조 데이터 전처리 (1)</h4>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 7차시 강의안을 작성해주세요.</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 제조 데이터 전처리 (1)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>빠진 값(결측치)을 찾아내고 적절히 처리한다</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>이상한 값(이상치)을 탐지하는 방법을 적용한다</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>상황에 맞는 데이터 정리 방법을 선택한다</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 센서 결측치 탐지 및 처리</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>이상치 탐지 방법 (IQR, Z-score)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 현장 데이터 정리 전략 수립</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조 현장 시나리오</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>센서 고장으로 인한 결측치 발생</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>설비 이상으로 인한 비정상 측정값</span></code></pre></div>
+<h4 id="차시-제조-데이터-전처리-2">8차시: 제조 데이터 전처리 (2)</h4>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 8차시 강의안을 작성해주세요.</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 제조 데이터 전처리 (2)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>스케일링(값 범위 조정)의 필요성을 이해한다</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>범주형 데이터를 숫자로 바꾸는 방법을 적용한다</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>sklearn의 전처리 도구를 활용한다</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>값 범위 조정 (StandardScaler, MinMaxScaler)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>범주를 숫자로 변환 (LabelEncoder, OneHotEncoder)</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 데이터 전처리 파이프라인 구성</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mermaid 다이어그램 요청</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>전처리 파이프라인 흐름도</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>스케일링 전/후 비교 다이어그램</span></code></pre></div>
+<h4 id="차시-제조-데이터-탐색-분석-종합">9차시: 제조 데이터 탐색 분석
+종합</h4>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 9차시 강의안을 작성해주세요.</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 제조 데이터 탐색 분석 종합</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>과제: 실습과제</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>데이터 탐색 분석(EDA)의 전체 흐름을 이해한다</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>제조 데이터에서 의미 있는 정보를 찾아낸다</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>스마트공장 품질 데이터를 종합적으로 분석한다</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>데이터 탐색 5단계 과정</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>변수별/변수간 관계 분석</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>스마트공장 제조 품질 데이터 종합 분석 실습</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## 실습과제 안내</span></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제공된 스마트공장 데이터셋으로 EDA 수행</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>인사이트 3가지 이상 도출</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시각화 포함 보고서 제출</span></code></pre></div>
+<hr />
+<h3 id="part-iii.-문제-중심-모델링-실습-1019차시">Part III. 문제 중심
+모델링 실습 (10~19차시)</h3>
+<h4 id="차시-머신러닝-소개와-문제-유형">10차시: 머신러닝 소개와 문제
+유형</h4>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 10차시 강의안을 작성해주세요.</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 머신러닝 소개와 문제 유형</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>머신러닝이 무엇인지 설명한다</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>지도학습과 비지도학습을 구분한다</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>분류 문제와 예측 문제를 구분한다</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>머신러닝의 개념과 제조업 활용 사례</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>지도학습 vs 비지도학습 vs 강화학습</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 현장의 분류/예측 문제 예시</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조업 ML 활용 사례</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>품질 예측: 불량 발생 전 사전 탐지</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>설비 유지보수: 고장 예측 정비</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공정 최적화: 최적 파라미터 찾기</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mermaid 다이어그램 요청</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>머신러닝 종류 분류 마인드맵</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>분류 vs 회귀 비교 다이어그램</span></code></pre></div>
+<h4 id="차시-분류-모델-1-의사결정나무">11차시: 분류 모델 (1):
+의사결정나무</h4>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 11차시 강의안을 작성해주세요.</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 분류 모델 (1): 의사결정나무</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>의사결정나무의 원리를 설명한다</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>DecisionTreeClassifier로 분류 모델을 만든다</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>제품 양/불량 분류 예측을 수행한다</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>의사결정나무의 분류 기준 (질문으로 나누기)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>학습용/테스트용 데이터 나누기</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 제품 품질 분류 모델 학습</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조 데이터 시나리오</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>입력: 온도, 압력, 습도, 작업시간</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>출력: 양품/불량품 분류</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## 시각화 요청</span></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>의사결정나무 시각화 (plot_tree)</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>분류 결과 혼동행렬</span></code></pre></div>
+<h4 id="차시-분류-모델-2-랜덤포레스트">12차시: 분류 모델 (2):
+랜덤포레스트</h4>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 12차시 강의안을 작성해주세요.</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 분류 모델 (2): 랜덤포레스트</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>여러 모델을 조합하는 앙상블 학습의 개념을 설명한다</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>랜덤포레스트의 원리를 이해한다</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>RandomForestClassifier로 분류 모델을 만든다</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>여러 모델 조합 개념 (배깅, 부스팅)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>랜덤포레스트의 작동 원리</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 불량 분류 모델 학습 및 성능 비교</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 비전공자 친화적 설명</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>&quot;여러 전문가의 의견을 모아 결정&quot; 비유</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>복잡한 수식 없이 직관적 설명</span></code></pre></div>
+<h4 id="차시-예측-모델-선형회귀와-다항회귀">13차시: 예측 모델:
+선형회귀와 다항회귀</h4>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 13차시 강의안을 작성해주세요.</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 예측 모델: 선형회귀와 다항회귀</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>예측 문제의 특징을 이해한다</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>선형회귀로 예측 모델을 만든다</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>다항회귀로 곡선 관계를 모델링한다</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>예측 문제와 성능 지표 (MSE, RMSE, R2)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>선형회귀 모델로 제조 공정 수율 예측</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>다항회귀로 비선형 관계 모델링</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조 데이터 시나리오</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공정 파라미터 → 생산 수율 예측</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>원자재 투입량 → 제품 품질 예측</span></code></pre></div>
+<h4 id="차시-모델-평가와-반복-검증">14차시: 모델 평가와 반복 검증</h4>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 14차시 강의안을 작성해주세요.</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 모델 평가와 반복 검증</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>과제: 실습과제</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>반복 검증(교차검증)의 개념과 필요성을 이해한다</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>과도한 학습/부족한 학습을 진단한다</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>혼동행렬, 정밀도, 재현율을 해석한다</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>K-Fold 반복 검증</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>과적합 vs 과소적합 진단</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>분류 평가 지표</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## 비전공자 친화적 용어</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>교차검증 → 반복 테스트 검증</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>과적합 → 과도한 학습 (외운 것만 맞추는 상태)</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>과소적합 → 부족한 학습 (기본도 못 맞추는 상태)</span></code></pre></div>
+<h4 id="차시-모델-설정값-최적화">15차시: 모델 설정값 최적화</h4>
+<div class="sourceCode" id="cb16"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 15차시 강의안을 작성해주세요.</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 모델 설정값 최적화</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>모델 설정값(하이퍼파라미터)의 개념을 이해한다</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>GridSearchCV로 최적의 설정값을 찾는다</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>RandomizedSearchCV를 활용한다</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>학습되는 값 vs 미리 정하는 설정값</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>GridSearchCV로 최적 설정 찾기</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>RandomizedSearchCV 비교</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 비전공자 친화적 설명</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>&quot;요리 레시피에서 불 세기, 시간 조절&quot; 비유</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>하이퍼파라미터 → 모델 설정값</span></code></pre></div>
+<h4 id="차시-시계열-데이터-기초">16차시: 시계열 데이터 기초</h4>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 16차시 강의안을 작성해주세요.</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 시계열 데이터 기초</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>시간에 따라 변하는 데이터의 특성을 이해한다</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>datetime으로 날짜/시간을 처리한다</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>제조 설비 센서 시계열 데이터를 시각화한다</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시계열 데이터의 구성 요소</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>pandas datetime 처리</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 설비 가동률 추세 시각화</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조 데이터 시나리오</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>설비 진동 센서 데이터 (1분 단위)</span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공장 전력 사용량 데이터 (시간 단위)</span></code></pre></div>
+<h4 id="차시-시계열-예측-모델">17차시: 시계열 예측 모델</h4>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 17차시 강의안을 작성해주세요.</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 시계열 예측 모델</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>시계열 특성을 만들어낸다</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>ML 모델로 시계열을 예측한다</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>제조 설비 고장 예측 성능을 평가한다</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Lag 특성, 이동평균 특성 만들기</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>ML 모델 기반 설비 상태 예측</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시계열 반복 검증</span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조 데이터 시나리오</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>설비 고장 예측 (예측적 유지보수)</span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>생산량 예측 (수요 예측)</span></code></pre></div>
+<h4 id="차시-딥러닝-입문-신경망-기초">18차시: 딥러닝 입문: 신경망
+기초</h4>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 18차시 강의안을 작성해주세요.</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 딥러닝 입문: 신경망 기초</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>신경망의 기본 구조를 이해한다</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>뉴런과 층의 개념을 설명한다</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>딥러닝과 머신러닝의 차이를 구분한다</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>인공 신경망의 구조</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>활성화 함수 (ReLU, Sigmoid) 이해</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>딥러닝의 장단점과 제조업 활용 사례</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 비전공자 친화적 설명</span></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>&quot;뇌의 신경세포 연결을 모방&quot; 비유</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>수식 없이 그림 중심 설명</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## Mermaid 다이어그램 요청</span></span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>신경망 구조 다이어그램</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>입력-은닉-출력층 흐름도</span></code></pre></div>
+<h4 id="차시-딥러닝-실습-mlp로-품질-예측">19차시: 딥러닝 실습: MLP로
+품질 예측</h4>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 19차시 강의안을 작성해주세요.</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 딥러닝 실습: MLP로 품질 예측</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>과제: 실습과제</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Keras로 다층 신경망(MLP) 모델을 만든다</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>모델을 학습하고 평가한다</span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>학습 곡선을 해석한다</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Keras Sequential 모델 구성</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>compile, fit, evaluate 사용법</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 품질 예측 딥러닝 모델</span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="fu">## 코드 템플릿 요청</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>모델 정의 → 컴파일 → 학습 → 평가 전체 흐름</span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>학습 곡선 시각화 코드</span></code></pre></div>
+<hr />
+<h3 id="part-iv.-ai-서비스화와-활용-2026차시">Part IV. AI 서비스화와
+활용 (20~26차시)</h3>
+<h4 id="차시-ai-api의-이해와-활용">20차시: AI API의 이해와 활용</h4>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 20차시 강의안을 작성해주세요.</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: AI API의 이해와 활용</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>API의 개념을 이해한다</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>REST API로 데이터를 주고받는다</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>공공 제조 데이터 API를 활용한다</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>API와 REST API 개념</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>requests 라이브러리 활용</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공공데이터포털 제조업 API 호출 실습</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 비전공자 친화적 설명</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>&quot;식당 주문처럼 요청하고 응답받는 것&quot; 비유</span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>실제 API 호출 결과 시연</span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="fu">## 공공데이터 API 예시</span></span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공공데이터포털 제조업 생산지수 API</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>스마트공장 데이터 API</span></code></pre></div>
+<h4 id="차시-llm-api와-프롬프트-작성법">21차시: LLM API와 프롬프트
+작성법</h4>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 21차시 강의안을 작성해주세요.</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: LLM API와 프롬프트 작성법</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>대규모 언어모델(LLM)의 개념과 활용 사례를 이해한다</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>OpenAI API를 활용하여 텍스트 생성을 수행한다</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>효과적인 프롬프트 작성 기법을 적용한다</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>LLM 개요 (GPT, Claude 등)</span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>OpenAI API 활용 (chat completions)</span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>프롬프트 작성 기법</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조업 LLM 활용 사례</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>설비 매뉴얼 Q&amp;A 챗봇</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>품질 보고서 자동 작성</span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공정 이상 원인 분석 보조</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="fu">## 프롬프트 기법 정리</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>역할 설정 (Role)</span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>예시 제공 (Few-shot)</span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>단계별 사고 (Chain of Thought)</span></code></pre></div>
+<h4 id="차시-streamlit으로-웹앱-만들기">22차시: Streamlit으로 웹앱
+만들기</h4>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 22차시 강의안을 작성해주세요.</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: Streamlit으로 웹앱 만들기</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>Streamlit의 기본 사용법을 익힌다</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>대화형 입력 요소를 활용한다</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>제조 품질 예측 웹앱을 만든다</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Streamlit 기본 구성 요소</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>입력 요소 (슬라이더, 텍스트 입력, 버튼)</span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 품질 예측 모델 연동</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 완성 앱 기능</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공정 파라미터 입력 (온도, 압력, 습도)</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>품질 예측 결과 표시</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>예측 신뢰도 시각화</span></code></pre></div>
+<h4 id="차시-fastapi로-예측-서비스-만들기">23차시: FastAPI로 예측 서비스
+만들기</h4>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 23차시 강의안을 작성해주세요.</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: FastAPI로 예측 서비스 만들기</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>FastAPI의 기본 사용법을 익힌다</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>REST API 주소(엔드포인트)를 만든다</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>제조 품질 예측 API를 구축한다</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>FastAPI 설치 및 기본 구조</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>GET/POST 요청 처리 구현</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Pydantic 데이터 검증</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## API 엔드포인트 설계</span></span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>POST /predict: 품질 예측 요청</span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>GET /health: 서버 상태 확인</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>GET /model-info: 모델 정보 조회</span></code></pre></div>
+<h4 id="차시-모델-해석과-변수별-영향력-분석">24차시: 모델 해석과 변수별
+영향력 분석</h4>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 24차시 강의안을 작성해주세요.</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 모델 해석과 변수별 영향력 분석</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 이론+실습</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>모델 해석의 필요성을 이해한다</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>변수별 영향력(Feature Importance)을 분석한다</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>Permutation Importance를 활용한다</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 AI 모델 해석의 중요성</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>나무 기반 모델의 변수별 영향력</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Permutation Importance 실습</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 제조 현장 적용</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>&quot;왜 불량이 발생했는가?&quot; 원인 분석</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>품질에 가장 큰 영향을 주는 공정 변수 파악</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>공정 개선 우선순위 결정</span></code></pre></div>
+<h4 id="차시-모델-저장과-실무-배포-준비">25차시: 모델 저장과 실무 배포
+준비</h4>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 25차시 강의안을 작성해주세요.</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: 모델 저장과 실무 배포 준비</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>joblib으로 모델을 저장하고 불러온다</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>모델 버전 관리 방법을 이해한다</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>실무 배포 체크리스트를 활용한다</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>joblib 모델 저장/불러오기</span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>모델 버전 관리 전략</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제조 현장 배포 체크리스트</span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-20"><a href="#cb26-20" aria-hidden="true" tabindex="-1"></a><span class="fu">## 배포 체크리스트</span></span>
+<span id="cb26-21"><a href="#cb26-21" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 입력 데이터 검증</span>
+<span id="cb26-22"><a href="#cb26-22" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 예측 결과 기록 (로깅)</span>
+<span id="cb26-23"><a href="#cb26-23" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 성능 모니터링 설정</span>
+<span id="cb26-24"><a href="#cb26-24" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 롤백 계획 수립</span></code></pre></div>
+<h4 id="차시-ai-프로젝트-종합-실습">26차시: AI 프로젝트 종합 실습</h4>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># 프롬프트</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>당신은 제조업 AI 교육 전문가입니다. 다음 조건에 맞춰 26차시 강의안을 작성해주세요.</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="fu">## 차시 정보</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>차시명: AI 프로젝트 종합 실습</span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>구분: 실습</span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시간: 25분</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>과제: 최종과제</span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습목표</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>전체 AI 파이프라인을 직접 구축한다</span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>데이터 분석부터 서비스 배포까지 통합 실습한다</span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>최종 과제 요구사항을 이해하고 계획을 수립한다</span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## 학습내용</span></span>
+<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>종합 실습: 제조 품질 예측 웹 서비스 구축</span>
+<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>단계별 체크리스트</span>
+<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>최종 과제 안내 및 평가 기준</span>
+<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>후속 학습 안내</span>
+<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-22"><a href="#cb27-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## 종합 실습 체크리스트</span></span>
+<span id="cb27-23"><a href="#cb27-23" aria-hidden="true" tabindex="-1"></a><span class="ss">1. </span>데이터 탐색 (EDA)</span>
+<span id="cb27-24"><a href="#cb27-24" aria-hidden="true" tabindex="-1"></a><span class="ss">2. </span>데이터 전처리</span>
+<span id="cb27-25"><a href="#cb27-25" aria-hidden="true" tabindex="-1"></a><span class="ss">3. </span>모델 학습 및 평가</span>
+<span id="cb27-26"><a href="#cb27-26" aria-hidden="true" tabindex="-1"></a><span class="ss">4. </span>모델 저장</span>
+<span id="cb27-27"><a href="#cb27-27" aria-hidden="true" tabindex="-1"></a><span class="ss">5. </span>Streamlit/FastAPI 서비스 구현</span>
+<span id="cb27-28"><a href="#cb27-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-29"><a href="#cb27-29" aria-hidden="true" tabindex="-1"></a><span class="fu">## 최종 과제 안내</span></span>
+<span id="cb27-30"><a href="#cb27-30" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제공된 제조 데이터셋으로 품질 예측 서비스 구축</span>
+<span id="cb27-31"><a href="#cb27-31" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>제출물: 코드, 보고서, 서비스 데모 영상</span>
+<span id="cb27-32"><a href="#cb27-32" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>평가 기준: 정확도, 코드 품질, 서비스 완성도</span>
+<span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a><span class="fu">## 후속 학습 로드맵</span></span>
+<span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>이미지 분석: CNN (Convolutional Neural Network)</span>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>시계열 심화: RNN, LSTM</span>
+<span id="cb27-37"><a href="#cb27-37" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>자연어 처리: Transformer, BERT</span>
+<span id="cb27-38"><a href="#cb27-38" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>생성형 AI: GPT 활용 심화</span></code></pre></div>
+<hr />
+<h2 id="mermaid-다이어그램-템플릿">5. Mermaid 다이어그램 템플릿</h2>
+<h3 id="흐름도-flowchart">5.1 흐름도 (Flowchart)</h3>
+<pre class="mermaid"><code>flowchart TD
+    A[데이터 수집] --&gt; B[데이터 탐색]
+    B --&gt; C[데이터 전처리]
+    C --&gt; D[모델 학습]
+    D --&gt; E{성능 평가}
+    E --&gt;|만족| F[모델 배포]
+    E --&gt;|불만족| C
+    F --&gt; G[모니터링]</code></pre>
+<h3 id="마인드맵-mind-map">5.2 마인드맵 (Mind Map)</h3>
+<pre class="mermaid"><code>mindmap
+  root((머신러닝))
+    지도학습
+      분류
+        의사결정나무
+        랜덤포레스트
+      회귀
+        선형회귀
+        다항회귀
+    비지도학습
+      군집화
+      차원축소
+    강화학습</code></pre>
+<h3 id="시퀀스-다이어그램">5.3 시퀀스 다이어그램</h3>
+<pre class="mermaid"><code>sequenceDiagram
+    participant 사용자
+    participant 웹앱
+    participant API
+    participant 모델
+
+    사용자-&gt;&gt;웹앱: 공정 파라미터 입력
+    웹앱-&gt;&gt;API: 예측 요청
+    API-&gt;&gt;모델: 데이터 전달
+    모델-&gt;&gt;API: 예측 결과
+    API-&gt;&gt;웹앱: 응답 반환
+    웹앱-&gt;&gt;사용자: 품질 예측 표시</code></pre>
+<h3 id="클래스-다이어그램-데이터-구조">5.4 클래스 다이어그램 (데이터
+구조)</h3>
+<pre class="mermaid"><code>classDiagram
+    class 제조데이터 {
+        +온도 float
+        +압력 float
+        +습도 float
+        +작업시간 int
+        +품질결과 str
+    }
+    class 전처리기 {
+        +결측치처리()
+        +이상치처리()
+        +스케일링()
+    }
+    class 예측모델 {
+        +학습()
+        +예측()
+        +평가()
+    }
+    제조데이터 --&gt; 전처리기
+    전처리기 --&gt; 예측모델</code></pre>
+<hr />
+<h2 id="pptx-변환-가이드">6. PPTX 변환 가이드</h2>
+<h3 id="marp를-활용한-변환">6.1 Marp를 활용한 변환</h3>
+<div class="sourceCode" id="cb32"><pre
+class="sourceCode bash"><code class="sourceCode bash"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Marp CLI 설치</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> install <span class="at">-g</span> @marp-team/marp-cli</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="co"># MD → PPTX 변환</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a><span class="ex">marp</span> <span class="at">--pptx</span> 강의안.md <span class="at">-o</span> 강의안.pptx</span></code></pre></div>
+<h3 id="marp-헤더-템플릿">6.2 Marp 헤더 템플릿</h3>
+<div class="sourceCode" id="cb33"><pre
+class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">marp</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">theme</span><span class="kw">:</span><span class="at"> default</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="fu">paginate</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">header</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;제조데이터 AI | {차시번호}차시&#39;</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">footer</span><span class="kw">:</span><span class="at"> </span><span class="st">&#39;© 2026 K-Digital 기초역량훈련&#39;</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">style</span><span class="kw">: </span><span class="ch">|</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  section {</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>    background-color: #F8FAFC;</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>    color: #1E293B;</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  h1 {</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    color: #2563EB;</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>  code {</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>    background-color: #E2E8F0;</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<h3 id="슬라이드-구분">6.3 슬라이드 구분</h3>
+<div class="sourceCode" id="cb34"><pre
+class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 슬라이드 1: 표지</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 1차시: AI 활용 윤리와 데이터 보호</span></span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co">**학습목표**</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co">- AI를 올바르게 사용하기 위한 기본 원칙을 알아본다</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co">- 제조 현장의 데이터 보안 사고 유형과 예방법을 이해한다</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="fu"># 슬라이드 2: 학습목표</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="fu">## 이번 시간에 배울 내용</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> AI 윤리 4가지 원칙 이해</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> 제조업 데이터 보호 규정 파악</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[ ]</span> AI 저작권 이슈 인식</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>---</span></code></pre></div>
+<hr />
+<h2 id="파일-생성-체크리스트">7. 파일 생성 체크리스트</h2>
+<p>각 차시별로 다음 파일을 생성합니다:</p>
+<pre><code>강의안/
+├── 01차시_AI활용윤리/
+│   ├── 01차시_강의안.md
+│   ├── 01차시_다이어그램.md
+│   ├── 01차시_슬라이드.md (Marp 형식)
+│   └── 01차시_슬라이드.pptx
+├── 02차시_Python시작하기/
+│   ├── ...
+...
+└── 26차시_종합실습/
+    ├── 26차시_강의안.md
+    ├── 26차시_다이어그램.md
+    ├── 26차시_슬라이드.md
+    └── 26차시_슬라이드.pptx</code></pre>
+<hr />
+<h2 id="품질-체크리스트">8. 품질 체크리스트</h2>
+<p>각 강의안 작성 후 확인:</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+학습목표 3개가 명확히 제시되었는가?</li>
+<li><input type="checkbox" disabled="" />
+제조 데이터 활용 예시가 포함되었는가?</li>
+<li><input type="checkbox" disabled="" />
+비전공자가 이해하기 쉬운 용어를 사용했는가?</li>
+<li><input type="checkbox" disabled="" />
+25분 분량에 적합한 내용인가?</li>
+<li><input type="checkbox" disabled="" />
+Mermaid 다이어그램이 포함되었는가?</li>
+<li><input type="checkbox" disabled="" />
+실습 코드가 복사-붙여넣기 가능한가?</li>
+<li><input type="checkbox" disabled="" />
+슬라이드 14~16장 분량인가?</li>
+</ul>
+<hr />
+<h2 id="용어-대응표-전문용어-쉬운-표현">9. 용어 대응표 (전문용어 → 쉬운
+표현)</h2>
+<table>
+<thead>
+<tr class="header">
+<th>전문 용어</th>
+<th>쉬운 표현</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>하이퍼파라미터</td>
+<td>모델 설정값</td>
+<td>모델 학습 전 미리 정하는 값</td>
+</tr>
+<tr class="even">
+<td>피처(Feature)</td>
+<td>입력 변수, 특성</td>
+<td>모델에 넣는 데이터 항목</td>
+</tr>
+<tr class="odd">
+<td>타깃(Target)</td>
+<td>예측 대상, 정답</td>
+<td>맞추려는 값</td>
+</tr>
+<tr class="even">
+<td>오버피팅</td>
+<td>과도한 학습</td>
+<td>암기만 해서 새 문제 못 푸는 상태</td>
+</tr>
+<tr class="odd">
+<td>언더피팅</td>
+<td>부족한 학습</td>
+<td>기본도 이해 못한 상태</td>
+</tr>
+<tr class="even">
+<td>교차검증</td>
+<td>반복 테스트 검증</td>
+<td>여러 번 나눠서 검증하기</td>
+</tr>
+<tr class="odd">
+<td>정규화/스케일링</td>
+<td>값 범위 조정</td>
+<td>큰 값과 작은 값 맞추기</td>
+</tr>
+<tr class="even">
+<td>인코딩</td>
+<td>숫자로 변환</td>
+<td>글자를 숫자로 바꾸기</td>
+</tr>
+<tr class="odd">
+<td>결측치</td>
+<td>빠진 값</td>
+<td>비어 있는 데이터</td>
+</tr>
+<tr class="even">
+<td>이상치</td>
+<td>튀는 값</td>
+<td>비정상적으로 크거나 작은 값</td>
+</tr>
+<tr class="odd">
+<td>레이블</td>
+<td>정답표</td>
+<td>분류 기준</td>
+</tr>
+<tr class="even">
+<td>에폭(Epoch)</td>
+<td>전체 학습 횟수</td>
+<td>전체 데이터를 몇 번 봤는지</td>
+</tr>
+<tr class="odd">
+<td>배치(Batch)</td>
+<td>한 묶음</td>
+<td>한 번에 학습하는 데이터 수</td>
+</tr>
+<tr class="even">
+<td>손실함수</td>
+<td>오차 측정 방법</td>
+<td>얼마나 틀렸는지 계산</td>
+</tr>
+<tr class="odd">
+<td>옵티마이저</td>
+<td>학습 방향 결정자</td>
+<td>어디로 학습할지 정하는 것</td>
+</tr>
+<tr class="even">
+<td>API</td>
+<td>프로그램 소통 창구</td>
+<td>프로그램끼리 대화하는 방법</td>
+</tr>
+<tr class="odd">
+<td>엔드포인트</td>
+<td>API 주소</td>
+<td>요청을 보내는 곳</td>
+</tr>
+<tr class="even">
+<td>파이프라인</td>
+<td>처리 흐름</td>
+<td>데이터가 거치는 단계들</td>
+</tr>
+<tr class="odd">
+<td>앙상블</td>
+<td>여러 모델 조합</td>
+<td>전문가 여럿이 함께 결정</td>
+</tr>
+<tr class="even">
+<td>활성화 함수</td>
+<td>신호 전달 규칙</td>
+<td>신경망에서 값을 변환하는 방식</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="제조-데이터-시나리오-예시">10. 제조 데이터 시나리오 예시</h2>
+<h3 id="스마트공장-센서-데이터">10.1 스마트공장 센서 데이터</h3>
+<pre class="csv"><code>timestamp,temperature,pressure,vibration,humidity,quality
+2024-01-01 08:00:00,85.2,101.3,0.42,45.2,정상
+2024-01-01 08:01:00,86.1,102.1,0.45,44.8,정상
+2024-01-01 08:02:00,92.5,108.7,0.89,48.1,불량</code></pre>
+<h3 id="설비-상태-데이터">10.2 설비 상태 데이터</h3>
+<pre class="csv"><code>equipment_id,runtime_hours,maintenance_count,failure_rate,status
+EQ001,12500,8,0.02,정상
+EQ002,18200,12,0.05,주의
+EQ003,25000,18,0.12,점검필요</code></pre>
+<h3 id="품질-검사-데이터">10.3 품질 검사 데이터</h3>
+<pre class="csv"><code>batch_id,length_mm,weight_g,hardness,surface_defect,pass_fail
+B001,100.2,250.1,45.3,0,합격
+B002,99.8,251.2,44.9,0,합격
+B003,102.5,248.3,42.1,2,불합격</code></pre>
+<hr />
+<h2 id="참고-데이터셋-및-자료">11. 참고 데이터셋 및 자료</h2>
+<table>
+<thead>
+<tr class="header">
+<th>데이터셋</th>
+<th>출처</th>
+<th>용도</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>AI Hub 스마트공장 센서 데이터</td>
+<td>aihub.or.kr</td>
+<td>설비 상태 예측</td>
+</tr>
+<tr class="even">
+<td>UCI Steel Plates Faults</td>
+<td>archive.ics.uci.edu</td>
+<td>불량 분류</td>
+</tr>
+<tr class="odd">
+<td>Kaggle Predictive Maintenance</td>
+<td>kaggle.com</td>
+<td>설비 고장 예측</td>
+</tr>
+<tr class="even">
+<td>SECOM 반도체 공정 데이터</td>
+<td>archive.ics.uci.edu</td>
+<td>품질 예측</td>
+</tr>
+<tr class="odd">
+<td>공공데이터포털 산업통계</td>
+<td>data.go.kr</td>
+<td>산업 현황 분석</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="차시별-핵심-키워드">12. 차시별 핵심 키워드</h2>
+<table>
+<thead>
+<tr class="header">
+<th>차시</th>
+<th>핵심 키워드</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>AI 윤리, 공정성, 투명성, 데이터 보안</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Python, Anaconda, Jupyter, 변수, 조건문</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>NumPy, Pandas, DataFrame, 센서 데이터</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>평균, 표준편차, 히스토그램, Matplotlib</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>정규분포, 가설검정, p-value, 품질 검정</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>상관계수, 회귀분석, sklearn</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>결측치, 이상치, 데이터 정리</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>스케일링, 인코딩, 파이프라인</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>EDA, 탐색적 분석, 종합 분석</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>머신러닝, 지도학습, 분류/회귀</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>의사결정트리, DecisionTreeClassifier</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>랜덤포레스트, 앙상블, 배깅</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>선형회귀, 다항회귀, MSE, R2</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>교차검증, 과적합, 혼동행렬</td>
+</tr>
+<tr class="odd">
+<td>15</td>
+<td>하이퍼파라미터, GridSearchCV</td>
+</tr>
+<tr class="even">
+<td>16</td>
+<td>시계열, datetime, 추세, 계절성</td>
+</tr>
+<tr class="odd">
+<td>17</td>
+<td>Lag 특성, 이동평균, 시계열 예측</td>
+</tr>
+<tr class="even">
+<td>18</td>
+<td>신경망, 뉴런, 활성화 함수</td>
+</tr>
+<tr class="odd">
+<td>19</td>
+<td>Keras, MLP, Sequential, 학습곡선</td>
+</tr>
+<tr class="even">
+<td>20</td>
+<td>REST API, requests, 공공데이터</td>
+</tr>
+<tr class="odd">
+<td>21</td>
+<td>LLM, OpenAI API, 프롬프트 엔지니어링</td>
+</tr>
+<tr class="even">
+<td>22</td>
+<td>Streamlit, 웹앱, 대화형 UI</td>
+</tr>
+<tr class="odd">
+<td>23</td>
+<td>FastAPI, 엔드포인트, Pydantic</td>
+</tr>
+<tr class="even">
+<td>24</td>
+<td>모델 해석, Feature Importance</td>
+</tr>
+<tr class="odd">
+<td>25</td>
+<td>joblib, 모델 저장, 배포 체크리스트</td>
+</tr>
+<tr class="even">
+<td>26</td>
+<td>종합 실습, 파이프라인, 최종 프로젝트</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>본 프롬프트 가이드는 26차시 전체 강의안 작성의 일관성과 품질을
+보장하기 위해 작성되었습니다.</em></p>
+</body>
+</html>
